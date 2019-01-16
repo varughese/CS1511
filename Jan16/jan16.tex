@@ -61,9 +61,11 @@ $M' = $ "On input x:
 
 \vskip 1em
 
-Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M accepts input w, so $L(M') = \Sigma^{*}$. Since $L(M') \neq \emptyset$, $\langle M \rangle \not\in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
+Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M halts on input w, so $L(M') = \Sigma^{*}$. Since $L(M') \neq \emptyset$, $\langle M \rangle \not\in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
 
-Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not accept input w, so $L(M') = \emptyset $. Since $ L(M') = \emptyset$, $\langle M \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle $, so S will reject  $\langle M, w \rangle$. 
+Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not halt on input w, so $L(M') = \emptyset $. Since $ L(M') = \emptyset$, $\langle M \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle $, so S will reject  $\langle M, w \rangle$. 
+
+Since S is a decider for $A_{TM}$, which is undecidable, a contradiction appears and therefore $E_{TM}$ is undecidable.
  
 
 \vskip 1.1em
@@ -93,9 +95,11 @@ $M' = $ "On input x:
 
 \vskip 1em
 
-Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M accepts w, so $L(M') = \Sigma^{*}$. Since $L(M') = \Sigma^{*}$, $\langle M \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
+Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M accepts w, so $L(M') = \Sigma^{*}$. Since $L(M') = \Sigma^{*}$, $\langle M \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle$, so S will reject  $\langle M, w \rangle$. 
 
 Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not halt on input w, so $L(M') = \emptyset $. Since $ L(M') = \emptyset$, $\langle M \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle $, so S will accept  $\langle M, w \rangle$. 
+
+Since S is a decider for $A_{TM}$, which is undecidable, a contradiction appears and therefore $E_{TM}$ is undecidable.
  
 %%%%%%%%%%%%%%%%%%% 3c
 
@@ -118,7 +122,7 @@ $S$ = ``On input $\langle M, w \rangle$ where $M$ is a TM and $w$ is a string:
 $M' = $ "On input x:
 \begin{enumerate}[topsep=0pt,itemsep=0pt]
 \item Run M on input w
-\item If M accepts w, and x = 11110 \underline{accept}. Otherwise \underline{accept}.
+\item If M accepts w, and x = 11110 \underline{accept}. Otherwise \underline{reject}.
 \end{enumerate}
 \item Run R on input $\langle M' \rangle$
 \item If R  accepts $\langle M' \rangle$ \underline{accept} otherwise \underline{reject}.
@@ -130,12 +134,15 @@ Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in 
 
 Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not accept input w, so $L(M') = \emptyset $. Since 11110 $ \neq L(M')$, $\langle M \rangle \not\in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle $, so S will reject  $\langle M, w \rangle$.  
 
-%%%%%%%%%%%%%%%%%%% 3d
-
+Since S is a decider for $A_{TM}$, which is undecidable, a contradiction appears and therefore $E_{TM}$ is undecidable.
+  
+  
+  %%%%%%%%%%%%%%%%%% 3d
+  
 \vskip 1.1em
 {\large \textbf{3. (d) }}
 
-$ E_{TM} = \{ \langle M \rangle \mid M \text{is a TM and 11110} \in L(M)\} $
+$ E_{TM} = \{ \langle M \rangle \mid M \text{is a TM and L(M) has the property of having a 0 at the end}\} $
 
 
 Assume $\exists$ TM $R$ that decides $E_{TM}$.
@@ -151,7 +158,7 @@ $S$ = ``On input $\langle M, w \rangle$ where $M$ is a TM and $w$ is a string:
 $M' = $ "On input x:
 \begin{enumerate}[topsep=0pt,itemsep=0pt]
 \item Run M on input w
-\item If M accepts w, and x = 11110 \underline{accept}. Otherwise \underline{accept}.
+\item If M accepts w, and ends with a 0 \underline{accept}. Otherwise \underline{reject}.
 \end{enumerate}
 \item Run R on input $\langle M' \rangle$
 \item If R  accepts $\langle M' \rangle$ \underline{accept} otherwise \underline{reject}.
@@ -159,18 +166,23 @@ $M' = $ "On input x:
 
 \vskip 1em
 
-Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M accepts w, so $L(M') = \{ 11110 \}$.  $\langle M' \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
+Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M accepts w, so L(M') includes all strings that end with a 0.  $\langle M' \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
 
 Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not accept input w, so $L(M') = \emptyset $. Since 11110 $ \neq L(M')$, $\langle M \rangle \not\in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle $, so S will reject  $\langle M, w \rangle$.  
+
+Since S is a decider for $A_{TM}$, which is undecidable, a contradiction appears and therefore $E_{TM}$ is undecidable.
   
+  
+ %%%%%%%%%%%%%%%%%% 3e
  
  \vskip 1em
 {\large \textbf{3. (e) }}
  
- The first three subproblems are based upon the idea of $A_{TM}$ being undecidable. The fourth subproblem demonstrates that $A_{TM}$ is undecidable. With this in mind, $A_{TM}$ says that with a TM M and an input w, there is no way to decide M. The first three subproblems are basically versions of this problem, but with differing ways of stating w. For example, part (a.) includes checking every input to find out that nothing is accepted by M. The w in this case would be each string that is checked. The same goes for part (c.), where the problem involves checking if all strings in the language have the property of including the string 11110. Just like the fourth subproblem, checking for this property of strings in the language is undecidable. Thus, these subproblems are rooted in the fourth subproblem.
+ The first three subproblems are based upon the idea of $A_{TM}$ being undecidable. The fourth subproblem demonstrates that any language with a certain property is undecidable. With this in mind, $A_{TM}$ says that with a TM M and an input w, there is no way to decide M. In the case o f$A_{TM}$, this property involves being one specific set of characters. The first three subproblems are basically versions of this problem, but with differing ways of stating w. For example, part (a.) includes checking every input to find out that nothing is accepted by M. The w in this case would be each string that is checked. The same goes for part (c.), where the problem involves checking if all strings in the language have the property of including the string 11110. Just like the fourth subproblem, checking for this property of strings in the language is undecidable. Thus, these subproblems are rooted in the fourth subproblem.
  
  \vskip 1em
  
+ %%%%%%%%%%%%%%%%% 4
  
 {\large \textbf{4 }}
 
