@@ -53,7 +53,7 @@ $S$ = ``On input $\langle M, w \rangle$ where $M$ is a TM and $w$ is a string:
 $M' = $ "On input x:
 \begin{enumerate}[topsep=0pt,itemsep=0pt]
 \item Run M on input w
-\item If M accepts w, \underline{reject}. Otherwise \underline{accept}.
+\item If M accepts w, \underline{accept}. Otherwise \underline{reject}.
 \end{enumerate}
 \item Run R on input $\langle M' \rangle$
 \item If R accepts $\langle M' \rangle$ \underline{reject} otherwise \underline{accept}.
@@ -61,7 +61,7 @@ $M' = $ "On input x:
 
 \vskip 1em
 
-Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M halts on input w, so $L(M') = \Sigma^{*}$. Since $L(M') \neq \emptyset$, $\langle M \rangle \not\in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
+Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M accepts input w, so $L(M') = \Sigma^{*}$. Since $L(M') \neq \emptyset$, $\langle M \rangle \not\in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
 
 Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not halt on input w, so $L(M') = \emptyset $. Since $ L(M') = \emptyset$, $\langle M \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle $, so S will reject  $\langle M, w \rangle$. 
  
