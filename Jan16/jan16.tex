@@ -2,6 +2,7 @@
  
 \usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem} 
  
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -25,18 +26,45 @@
 %                         Start here
 % --------------------------------------------------------------
  
-\title{CS 1511 HW X}%replace X with the appropriate number
-\author{Mathew Varughese, \\ %replace with your name
-Theory of Computation} %if necessary, replace with your course title
+\title{CS 1511 Homework 2}%replace X with the appropriate number
+\author{Mathew Varughese} %if necessary, replace with your course title
+\date{Wednesday, Jan 16}
  
 \maketitle
+
+\setlength{\parskip}{.2em}
+\setlength\parindent{0pt}
  
 3. (a) 
-Say there is a Turing Machine A that takes in a Turing Machine \textit{M}, and determines whether the language \textit{L(M)} accepted by \textit{M} is the empty language.
+
+$ E_{TM} = \{ \langle M \rangle \mid M \text{is a TM and } L(M) = \emptyset \} $
 
 
-If A is reducible to B and B is decidable, A also is decidable.
-If A is undecidable and reducible to B, B is undecidable. The Halting Problem is undecidable. Therefore,  if the Halting Problem is undecidable, and M is decidable
+Assume $\exists$ TM $R$ that decides $E_{TM}$.
+
+\vskip 1em
+Construct Turing Machine $S$ that decides $HALT_{TM}$. 
+
+$S$ = ``On input $\langle M, w \rangle$ where $M$ is a TM and $w$ is a string:
+
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Construct TM $M'$ as follows:
+\par
+$M' = $ "On input x:
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Run M on input w
+\item If M accepts w, \underline{reject}. Otherwise \underline{accept}.
+\end{enumerate}
+\item Run R on input $\langle M' \rangle$
+\item If R accepts $\langle M' \rangle$ \underline{reject} otherwise \underline{accept}.
+\end{enumerate}
+
+\vskip 1em
+
+Assume that $\langle M, w \rangle \in HALT_{TM}$.  Since $\langle M, w \rangle \in HALT_{TM}$, M halts on input w, so $L(M') = \Sigma^{*}$. Since $L(M') \neq \emptyset$, $\langle M \rangle \not\in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
+
+Assume that $\langle M, w \rangle \not\in HALT_{TM} $.  Since $\langle M, w \rangle \not\in HALT_{TM} $, M does not halt on input w, so $L(M') = \emptyset $. Since $ L(M') = \emptyset$, $\langle M \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle $, so S will reject  $\langle M, w \rangle$. 
+ 
  
  
 \end{document}
