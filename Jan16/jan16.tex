@@ -63,7 +63,7 @@ $M' = $ "On input x:
 
 Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M accepts input w, so $L(M') = \Sigma^{*}$. Since $L(M') \neq \emptyset$, $\langle M \rangle \not\in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
 
-Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not halt on input w, so $L(M') = \emptyset $. Since $ L(M') = \emptyset$, $\langle M \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle $, so S will reject  $\langle M, w \rangle$. 
+Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not accept input w, so $L(M') = \emptyset $. Since $ L(M') = \emptyset$, $\langle M \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle $, so S will reject  $\langle M, w \rangle$. 
  
 
 \vskip 1.1em
@@ -101,6 +101,39 @@ Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle
 
 \vskip 1.1em
 {\large \textbf{3. (c) }}
+
+$ E_{TM} = \{ \langle M \rangle \mid M \text{is a TM and 11110} \in L(M)\} $
+
+
+Assume $\exists$ TM $R$ that decides $E_{TM}$.
+
+\vskip 1em
+Construct Turing Machine $S$ that decides $A_{TM}$. 
+
+$S$ = ``On input $\langle M, w \rangle$ where $M$ is a TM and $w$ is a string:
+
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Construct TM $M'$ as follows:
+\par
+$M' = $ "On input x:
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Run M on input w
+\item If M accepts w, and x = 11110 \underline{accept}. Otherwise \underline{accept}.
+\end{enumerate}
+\item Run R on input $\langle M' \rangle$
+\item If R  accepts $\langle M' \rangle$ \underline{accept} otherwise \underline{reject}.
+\end{enumerate}
+
+\vskip 1em
+
+Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M accepts w, so $L(M') = \{ 11110 \}$.  $\langle M' \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
+
+Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not accept input w, so $L(M') = \emptyset $. Since 11110 $ \neq L(M')$, $\langle M \rangle \not\in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle $, so S will reject  $\langle M, w \rangle$.  
+
+%%%%%%%%%%%%%%%%%%% 3d
+
+\vskip 1.1em
+{\large \textbf{3. (d) }}
 
 $ E_{TM} = \{ \langle M \rangle \mid M \text{is a TM and 11110} \in L(M)\} $
 
