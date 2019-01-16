@@ -1,0 +1,127 @@
+\documentclass[12pt]{article}
+
+\begin{document}
+
+\title{CS 1511 Homework 2 1511}
+
+\maketitle
+
+\section{Question 1}
+\subparagraph{a.}
+$E_{TM} = \{\langle M\rangle |\ M\ is\ a\ TM\ and\ L(M) = \emptyset\}$
+
+Assume there exists a function S that maps $E_{TM}$ from $HALT_{TM}$
+
+Construct function S that is a mapping reducible function from $HALT_{TM}$
+
+ as follows:\\[.15in]
+$\quad$S = ``On input $\langle M, w\rangle$ where M is a TM and w is a string:
+
+$\quad\quad$1. Construct TM P as follows:
+
+$\quad\quad\quad$P = ``On input x:
+
+$\quad\quad\quad\quad$1. Run M on input w
+
+$\quad\quad\quad\quad$2. If M halts on input w, accept
+
+$\quad\quad\quad\quad$Otherwise, reject
+
+$\quad\quad$2. Output $\langle P\rangle$\\[.04in]
+
+$\quad$Assume that $\langle M, w\rangle$ exists within $HALT_{TM}$, so M halts
+
+$\quad$on input w. Since M halts on input w, L(P) = $\Sigma$*. Thus, $\langle P\rangle$
+
+$\quad$does not exist within $E_{TM}$. This will be the output of S$\langle M, w\rangle$.
+
+$\quad$Assume that $\langle M, w\rangle$ doesn't exist within $HALT_{TM}$, so M doesn't halt
+
+$\quad$on input w. Since M doesn't halt on input w, L(P) = $\emptyset$. Thus, $\langle P\rangle$
+
+$\quad$exists within $E_{TM}$. This will be the output of S$\langle M, w\rangle$.\\[.04in]
+
+$\quad$Thus, $E_{TM}$ is reducible from $HALT_{TM}$ and undecideable.
+
+\subparagraph{b.}
+$ALL_{TM} = \{\langle M\rangle |\ M\ is\ a\ TM\ and\ L(M) = \emptyset\}$
+
+Assume there exists a function S that maps $ALL_{TM}$ from $HALT_{TM}$
+
+Construct function S that is a mapping reducible function from $HALT_{TM}$
+
+ as follows:\\[.15in]
+$\quad$S = ``On input $\langle M, w\rangle$ where M is a TM and w is a string:
+
+$\quad\quad$1. Construct TM P as follows:
+
+$\quad\quad\quad$P = ``On input x:
+
+$\quad\quad\quad\quad$1. Run M on input w
+
+$\quad\quad\quad\quad$2. If M halts on input w, reject
+
+$\quad\quad\quad\quad$Otherwise, accept
+
+$\quad\quad$2. Output $\langle P\rangle$\\[.04in]
+
+$\quad$Assume that $\langle M, w\rangle$ exists within $HALT_{TM}$, so M halts
+
+$\quad$on input w. Since M halts on input w, L(P) = $\emptyset$. Thus, $\langle P\rangle$
+
+$\quad$does not exist within $ALL_{TM}$. This will be the output of S$\langle M, w\rangle$.
+
+$\quad$Assume that $\langle M, w\rangle$ doesn't exist within $HALT_{TM}$, so M doesn't halt
+
+$\quad$on input w. Since M doesn't halt on input w, L(P) = $\Sigma$*. Thus, $\langle P\rangle$
+
+$\quad$exists within $ALL_{TM}$. This will be the output of S$\langle M, w\rangle$.\\[.04in]
+
+$\quad$Thus, $ALL_{TM}$ is reducible from $HALT_{TM}$ and undecideable.
+
+\subparagraph{c.}
+$BIN_{TM} = \{\langle M\rangle |\ M\ is\ a\ TM\ and\ L(M) = \emptyset\}$
+
+Assume there exists a function S that maps $BIN_{TM}$ from $HALT_{TM}$
+
+Construct function S that is a mapping reducible function from $HALT_{TM}$
+
+ as follows:\\[.15in]
+$\quad$S = ``On input $\langle M, w\rangle$ where M is a TM and w is a string:
+
+$\quad\quad$1. Construct TM P as follows:
+
+$\quad\quad\quad$P = ``On input x:
+
+$\quad\quad\quad\quad$1. Run M on input w
+
+$\quad\quad\quad\quad$2. If M halts on input w, reject
+
+$\quad\quad\quad\quad$Otherwise, accept
+
+$\quad\quad$2. Output $\langle P\rangle$\\[.04in]
+
+$\quad$Assume that $\langle M, w\rangle$ exists within $HALT_{TM}$, so M halts
+
+$\quad$on input w. Since M halts on input w, L(P) = $\emptyset$. Thus, $\langle P\rangle$
+
+$\quad$does not exist within $ALL_{TM}$. This will be the output of S$\langle M, w\rangle$.
+
+$\quad$Assume that $\langle M, w\rangle$ doesn't exist within $HALT_{TM}$, so M doesn't halt
+
+$\quad$on input w. Since M doesn't halt on input w, L(P) = $\Sigma$*. Thus, $\langle P\rangle$
+
+$\quad$exists within $ALL_{TM}$. This will be the output of S$\langle M, w\rangle$.\\[.04in]
+
+$\quad$Thus, $ALL_{TM}$ is reducible from $HALT_{TM}$ and undecideable.
+
+
+
+
+
+
+
+\section{Question 2}
+Answer:
+
+\end{document}
