@@ -1,0 +1,197 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem} 
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{CS 1511 Homework 2}%replace X with the appropriate number
+\author{Mathew Varughese, Justin Kramer} %if necessary, replace with your course title
+\date{Wednesday, Jan 16}
+ 
+\maketitle
+
+\setlength{\parskip}{.2em}
+\setlength\parindent{0pt}
+ 
+$A_{TM} = \{ \langle M, w \rangle \mid M \text{ is a TM and M accepts w } \}$.  
+
+$A_{TM}$ is reducible to $HALT_{TM}$ so the following problems are solved with reduction to $A_{TM}$.
+
+ \vskip 1em
+{\large \textbf{3. (a) }}
+
+$ E_{TM} = \{ \langle M \rangle \mid M \text{ is a TM and } L(M) = \emptyset \} $
+
+
+Assume $\exists$ TM $R$ that decides $E_{TM}$.
+
+\vskip 1em
+Construct Turing Machine $S$ that decides $A_{TM}$. 
+
+$S$ = ``On input $\langle M, w \rangle$ where $M$ is a TM and $w$ is a string:
+
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Construct TM $M'$ as follows:
+\par
+$M' = $ "On input x:
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Run M on input w
+\item If M accepts w, \underline{accept}. Otherwise \underline{reject}.
+\end{enumerate}
+\item Run R on input $\langle M' \rangle$
+\item If R accepts $\langle M' \rangle$ \underline{reject} otherwise \underline{accept}.
+\end{enumerate}
+
+\vskip 1em
+
+Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M halts on input w, so $L(M') = \Sigma^{*}$. Since $L(M') \neq \emptyset$, $\langle M \rangle \not\in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
+
+Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not halt on input w, so $L(M') = \emptyset $. Since $ L(M') = \emptyset$, $\langle M \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle $, so S will reject  $\langle M, w \rangle$. 
+
+Since S is a decider for $A_{TM}$, which is undecidable, a contradiction appears and therefore $E_{TM}$ is undecidable.
+ 
+
+\vskip 1.1em
+{\large \textbf{3. (b) }}
+
+$ E_{TM} = \{ \langle M \rangle \mid M \text{is a TM and } L(M) = \Sigma^{*} \} $
+
+
+Assume $\exists$ TM $R$ that decides $E_{TM}$.
+
+\vskip 1em
+Construct Turing Machine $S$ that decides $A_{TM}$. 
+
+$S$ = ``On input $\langle M, w \rangle$ where $M$ is a TM and $w$ is a string:
+
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Construct TM $M'$ as follows:
+\par
+$M' = $ "On input x:
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Run M on input w
+\item If M accepts w, \underline{reject}. Otherwise \underline{accept}.
+\end{enumerate}
+\item Run R on input $\langle M' \rangle$
+\item If R  rejects $\langle M' \rangle$ \underline{reject} otherwise \underline{accept}.
+\end{enumerate}
+
+\vskip 1em
+
+Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M accepts w, so $L(M') = \Sigma^{*}$. Since $L(M') = \Sigma^{*}$, $\langle M \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle$, so S will reject  $\langle M, w \rangle$. 
+
+Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not halt on input w, so $L(M') = \emptyset $. Since $ L(M') = \emptyset$, $\langle M \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle $, so S will accept  $\langle M, w \rangle$. 
+
+Since S is a decider for $A_{TM}$, which is undecidable, a contradiction appears and therefore $E_{TM}$ is undecidable.
+ 
+%%%%%%%%%%%%%%%%%%% 3c
+
+\vskip 1.1em
+{\large \textbf{3. (c) }}
+
+$ E_{TM} = \{ \langle M \rangle \mid M \text{is a TM and 11110} \in L(M)\} $
+
+
+Assume $\exists$ TM $R$ that decides $E_{TM}$.
+
+\vskip 1em
+Construct Turing Machine $S$ that decides $A_{TM}$. 
+
+$S$ = ``On input $\langle M, w \rangle$ where $M$ is a TM and $w$ is a string:
+
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Construct TM $M'$ as follows:
+\par
+$M' = $ "On input x:
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Run M on input w
+\item If M accepts w, and x = 11110 \underline{accept}. Otherwise \underline{reject}.
+\end{enumerate}
+\item Run R on input $\langle M' \rangle$
+\item If R  accepts $\langle M' \rangle$ \underline{accept} otherwise \underline{reject}.
+\end{enumerate}
+
+\vskip 1em
+
+Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M accepts w, so $L(M') = \{ 11110 \}$.  $\langle M' \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
+
+Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not accept input w, so $L(M') = \emptyset $. Since 11110 $ \neq L(M')$, $\langle M \rangle \not\in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle $, so S will reject  $\langle M, w \rangle$.  
+
+Since S is a decider for $A_{TM}$, which is undecidable, a contradiction appears and therefore $E_{TM}$ is undecidable.
+  
+  
+  %%%%%%%%%%%%%%%%%% 3d
+  
+\vskip 1.1em
+{\large \textbf{3. (d) }}
+
+$ E_{TM} = \{ \langle M \rangle \mid M \text{is a TM and L(M) has the property of having a 0 at the end}\} $
+
+
+Assume $\exists$ TM $R$ that decides $E_{TM}$.
+
+\vskip 1em
+Construct Turing Machine $S$ that decides $A_{TM}$. 
+
+$S$ = ``On input $\langle M, w \rangle$ where $M$ is a TM and $w$ is a string:
+
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Construct TM $M'$ as follows:
+\par
+$M' = $ "On input x:
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Run M on input w
+\item If M accepts w, and ends with a 0 \underline{accept}. Otherwise \underline{reject}.
+\end{enumerate}
+\item Run R on input $\langle M' \rangle$
+\item If R  accepts $\langle M' \rangle$ \underline{accept} otherwise \underline{reject}.
+\end{enumerate}
+
+\vskip 1em
+
+Assume that $\langle M, w \rangle \in A_{TM}$.  Since $\langle M, w \rangle \in A_{TM}$, M accepts w, so L(M') includes all strings that end with a 0.  $\langle M' \rangle \in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to accept $\langle M' \rangle$, so S will accept  $\langle M, w \rangle$. 
+
+Assume that $\langle M, w \rangle \not\in A_{TM} $.  Since $\langle M, w \rangle \not\in A_{TM} $, M does not accept input w, so $L(M') = \emptyset $. Since 11110 $ \neq L(M')$, $\langle M \rangle \not\in E_{TM}$. Since R is a decider for $E_{TM}$, running input $\langle M' \rangle$ will cause R to reject $\langle M' \rangle $, so S will reject  $\langle M, w \rangle$.  
+
+Since S is a decider for $A_{TM}$, which is undecidable, a contradiction appears and therefore $E_{TM}$ is undecidable.
+  
+  
+ %%%%%%%%%%%%%%%%%% 3e
+ 
+ \vskip 1em
+{\large \textbf{3. (e) }}
+ 
+ The first three subproblems are based upon the idea of $A_{TM}$ being undecidable. The fourth subproblem demonstrates that any language with a certain property is undecidable. With this in mind, $A_{TM}$ says that with a TM M and an input w, there is no way to decide M. In the case of $A_{TM}$, this property involves being one specific set of characters. The first three subproblems are basically versions of this problem, but with differing ways of stating w. For example, part (a.) includes checking every input to find out that nothing is accepted by M. The w in this case would be each string that is checked. The same goes for part (c.), where the problem involves checking if all strings in the language have the property of including the string 11110. Just like the fourth subproblem, checking for this property of strings in the language is undecidable. Thus, these subproblems are rooted in the fourth subproblem.
+ 
+ \vskip 1em
+ 
+ %%%%%%%%%%%%%%%%% 4
+ 
+{\large \textbf{4 }}
+
+The holographic principle was developed after thorough debates about black holes between Stephen Hawking and Leonard Susskind. Susskind developed the principle, which states that a black hole takes in a three-dimensional and spreads it around its entire event horizon from an outside view. This is similar to a hologram where an object in one place is spread across a film. This principle also applies to the three-dimensional universe, where everything is laid out across a one-dimensional film at the edge of the universe. Furthermore, Hawking argued that black holes destroy information when objects pass into them. Susskind, who was correct, argued that black holes take in and outwardly radiate the information they take in, preserving it in its entirety. 
+ 
+ 
+\end{document}
