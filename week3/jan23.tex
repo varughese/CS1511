@@ -86,6 +86,29 @@ $ I(Y;X) = H(Y) - H(Y|X) = 0.9871- 0.63= 0.3571 $
 \vskip 1.1em
 {\large \textbf{6. (b) }}
 
+{\textbf{i.}}  
 
+$ I(X;Y)$ is the mutual information between $X$ and $Y$. This is the measure of the reduction in uncertainity about x that results from learning the value of y. The formula is $I(X;Y) = H(X) - H(X|Y)$. If $I(X;Y) \geq 0$, then $H(X) - H(X|Y) \geq 0$. $H(X) \geq H(X|Y) $. This must be true. The entropy of a distribution must be greater or equal to the conditional entropy. Knowing another probability distribution cannot lower the amount of understood information. 
+
+{\textbf{ii.}}  
+
+$ I(X;Y) = I(Y;X) $.
+
+$ H(X) - H(X|Y) = H(Y) - H(Y|X) $
+
+$ H(X|Y) - H(Y|X) = H(Y) - H(X) $
+
+$   \sum  P(x,y) * \log_2{\frac{1}{P(x|y)}} -  \sum  P(x,y) * \log_2{\frac{1}{P(y|x)}}  = H(Y) - H(X) $
+
+$  \sum  P(x,y) * ( \log_2{\frac{1}{P(x|y)}}  -  \log_2{\frac{1}{P(y|x)}} ) =  \sum  P(x,y) *  \log_2{\frac{P(y|x)}{P(x|y)}}  = H(Y) - H(X)  $
+
+Apply Bayes Theorem.
+$\frac{P(y|x)}{P(x|y)}  = \frac{P(x|y)*(P(y)/P(x)}{P(x|y))} = \frac{P(y)}{P(x)} $
+
+$ \sum  P(x,y) *  \log_2{\frac{P(y)}{P(x)}} = H(Y) - H(X) $
+
+$   \sum  P(x,y) *  \log_2{\frac{P(y)}{P(x)}}  =\sum  P(y) * \log_2{\frac{1}{P(y)}}- \sum  P(x) * \log_2{\frac{1}{P(x)}}$
+
+Unsure how to proceed from here, especially since the bounds of the summations are different. Logically it makes sense that the mutual information between X and Y is the same as the mutual information between Y and X. Not sure exactly how to prove that fully mathematically.
  
 \end{document}
