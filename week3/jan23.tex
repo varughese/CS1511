@@ -39,10 +39,12 @@
  \vskip 1em
 {\large \textbf{5. (a) }}
 
-When encoding with techniques that involve creating prefix free codes, the letter with higher probabilities of appearing will have shorter bit lengths. The bitlength of a character is $\log_2{1/P(X)}$. In this case, $P(x) = \frac{1}{2^k}$, so $\log_2{1/P(X)} = \log_2{2^k} = k $. In expectation, a letter with a probability of $1/2^k$ of appearing will appear $1/2^k * n $ times in a string of length $n$ where letters are picked from the probability distribution. Therefore, in expectation, each character will have a bitlength of $k$ and show up $n/2^k$ times. Thus, this means the expected total bitlength of a $n$ long string is $\frac{n*k}{2^k}$, which is algebraicially equivalent to $n * H(x)$.
+When encoding with techniques that involve creating prefix free codes, the letter with higher probabilities of appearing will have shorter bit lengths. The bitlength of a character is $\log_2{1/P(X)}$. In this case, $P(x) = \frac{1}{2^k}$, so $\log_2{1/P(X)} = \log_2{2^k} = k $. In expectation, a letter with a probability of $1/2^k$ of appearing will appear $1/2^k * n $ times in a string of length $n$ where letters are picked from the probability distribution. Therefore, in expectation, each character will have a bitlength of $k$ and show up $n/2^k$ times. Thus, this means the expected total bitlength of a $n$ long string is $\frac{n*k}{2^k}$, which is algebraically equivalent to $n * H(x)$.
 
  \vskip 1em
 {\large \textbf{5. (b) }}
+
+In the same idea as the previous question, the bitlength of a character is $\log_2{1/P(X)}$. In this new case, an addition is made to so that our probability distribution for each letter which originally appears as $\frac{k}{2^k}$ is now  $\frac{k}{2^k} + 1$. In expectation, an individual letter will now contain $\frac{k + 2^k}{2^k}$ bits due to the probability of appearing as  $1/2^k$ with a bitlength of k that has been appended to in order to make our unpronounced form into the rounded up form of $\frac{1}{2^k}$. Due to there being n letters in our string with these letters being picked from our probability distribution, we expect the total bitlength of the string to be equivalent to  $\frac{n(k + 2^k)}{2^k}$. Thus, this total bitlength of  $\frac{n(k + 2^k)}{2^k}$ will be algebraically equivalent to $n * (H(x)+1)$.
 
 \vskip 1.1em
 {\large \textbf{6. (a) }}
