@@ -39,6 +39,8 @@
  \vskip 1em
 {\large \textbf{5. (a) }}
 
+When encoding with techniques that involve creating prefix free codes, the letter with higher probabilities of appearing will have shorter bit lengths. The bitlength of a character is $\log_2{1/P(X)}$. In this case, $P(x) = \frac{1}{2^k}$, so $\log_2{1/P(X)} = \log_2{2^k} = k $. In expectation, a letter with a probability of $1/2^k$ of appearing will appear $1/2^k * n $ times in a string of length $n$ where letters are picked from the probability distribution. Therefore, in expectation, each character will have a bitlength of $k$ and show up $n/2^k$ times. Thus, this means the expected total bitlength of a $n$ long string is $\frac{n*k}{2^k}$, which is algebraicially equivalent to $n * H(x)$.
+
  \vskip 1em
 {\large \textbf{5. (b) }}
 
@@ -77,7 +79,7 @@ $ I(X;Y) = H(X) - H(X|Y) = 0.918 - 0.561 = 0.357$
 {\textbf{vii.}} 
 $ I(Y;X) = H(Y) - H(Y|X) = 0.9871- 0.63= 0.3571 $ 
 
-{\textbf{viii.}} In this setting this means that there is the same amount of uncertainity between either what is sent or received. If you know what is sent you are exactly unsure of what is received as the other way around.
+{\textbf{viii.}} In this setting this means that there is the same amount of uncertainty between either what is sent or received. If you know what is sent you are a level of "unsure" of what is received. The same logic applies as the other way around.
 
 \vskip 1.1em
 {\large \textbf{6. (b) }}
