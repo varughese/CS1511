@@ -1,0 +1,56 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem} 
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{CS 1511 Homework 4}%replace X with the appropriate number
+\author{Mathew Varughese, Justin Kramer, Zach Smith} %if necessary, replace with your course title
+\date{Monday, Jan 28}
+ 
+\maketitle
+
+\setlength{\parskip}{.2em}
+\setlength\parindent{0pt}
+ 
+
+ \vskip 1em
+{\large \textbf{7}}
+
+Assume the definition in (b) is true. Then for a recursively enumerable language L, there exists a Turing machine M with a read/write tape that is initially empty and a write-nly output tape, such that only elements of L are written to the output tape, and every element of L is eventually written to the output tape. 
+
+Now construct a turing machine $M'$.
+
+
+$M' = $ "On input w:
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Run M until it produces a new output on its output tape.
+\item Check if w was the item written onto the output tape. If yes, \underline{accept}.
+\item Otherwise, go to step 1. If M is halted, \underline{loop indefinitely}.
+\end{enumerate}
+
+
+\
+\end{document}
