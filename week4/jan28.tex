@@ -55,8 +55,8 @@ Machine $M'$ is the same machine defined in part (a). If $x \in L$, then $x$ wil
 
 
 \vskip 1em
-{\large \textbf{8 (a)}}
-Assume there is a function to compute the Kolmogorov complexity of a string.  This function can be written into a program which has some arbitrary length x.  Since this program will decide whether any string is compressible then it is infinite and 
+{\large \textbf{8. a)}}
+Assume there is a function to compute the Kolmogorov complexity of a string.  This function can be written into a program which has some arbitrary length x.  Since this program will decide whether any string is compressible then it should compute the complexity of strings of any length, including those greater than x, or the program length. As the length of strings grows it grows constantly but the program grows by log of the length plus a constant.  This means eventually the length of the string will be greater than that of the program.  This raises a contradiction in the fact that the program outputted a string longer than the program itself which means that there cannot be a function to compute the Kolmogorov complexity of a string.  If the complexity cannot be computed, then the set of semi-incompressible strings cannot be computed since the definition of semi-incompressible strings is strings with a complexity greater than $\sqrt{n}$.  Therefore, if the complexity is not computable it cannot be proven to be more than $\sqrt{n}$.
 
 \vskip 1em
 {\large \textbf{8. b) }}
@@ -71,6 +71,13 @@ As the size of n grows, eventually $1/2\log_2n$ will grow larger than the consta
 
  \vskip 1em
 {\large \textbf{8 (d) }}
-A set is recursively enumerable if $\exist$ a Turing Machine that outputs each element in the 
+A set is recursively enumerable if $\exists $ a Turing Machine that outputs each element in the set. Construct a turing machine as follows:
+
+1. Start n = 0
+2. Generate all programs of bit length n.
+3. Run these programs all at the same time. Once one halts, If the output of that string is less than n. If not, wait til the next one halts. Output the string on to the tape.
+4. Increment n and go to step 2.
+
+This Turing Machine will run all possible programs and output strings only if they are compressible. Since it runs all programs
 
 \end{document}
