@@ -3,15 +3,13 @@
 \usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{enumitem} 
- 
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\problem}[1]{
+	\vskip 1em
+	{\large \textbf{#1}}
+}
  
 \begin{document}
- 
-% --------------------------------------------------------------
-%                         Start here
-% --------------------------------------------------------------
  
 \title{CS 1511 Homework 5}%replace X with the appropriate number
 \author{Mathew Varughese, Justin Kramer, Zach Smith} %if necessary, replace with your course title
@@ -22,9 +20,7 @@
 \setlength{\parskip}{.2em}
 \setlength\parindent{0pt}
  
-
- \vskip 1em
-{\large \textbf{9.}}
+\problem{9.}
 
 If a C program can output $x$ and another C program can output $y$, a program can 
 be made which calls both of these programs in order. Effectively, this would output
