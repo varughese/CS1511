@@ -25,6 +25,14 @@
 If a C program can output $x$ and another C program can output $y$, a program can 
 be made which calls both of these programs in order. Effectively, this would output
 $xy$. Here, $c$ would
-be the bits required to create this program that calls the two other program.
+be the extra bits required to create this program that calls the other programs as subroutines.
+
+
+\setlength{\parskip}{.2em}
+\setlength\parindent{0pt}
+ 
+\problem{10.}
+
+Since $\forall P(x)$ you can deduce countably infinite statements, each node of our tree of statements may have infinite children. Due to this, the language can be show to be recursively enumerable by mapping each child of one node to the natural numbers since the statements (children of the node) are countably infinite like the natural numbers. Through this mapping, each statement will eventually be reached with our Turing Machine T as it iterates through the natural numbers. Any initial node may be used to construct this mapping for each provable statement to be iterated through.
 
 \end{document}
