@@ -35,6 +35,17 @@ This configuration thus ends in the halting state.
  
 \problem{11 b.}
 
+To begin, here are some defined macros for this problem.
+
+BASE = 7
+
+BASE = 7 is true in this problem because the sum of the number of states, alphabet size, and \# are equal to 7.
+
+PLACE(j) = (H div(base)$^{i+1}$ mod(base)$^i$)
+
+In this case, H is a number that exists which one can interpret as a computation history of M on I.
+
+SAME(i, j, k, l) = (H div(base)$^j$ mod(base)$^i$) =  (H div(base)$^l$ mod(base)$^k$)
 
 
 \end{document}
