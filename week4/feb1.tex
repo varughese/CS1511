@@ -37,15 +37,36 @@ This configuration thus ends in the halting state.
 
 To begin, here are some defined macros for this problem.
 
+space = *, q\_0 = q\_y, q\_1 = q\_p
+
 BASE = 7
 
 BASE = 7 is true in this problem because the sum of the number of states, alphabet size, and \# are equal to 7.
 
-PLACE(j) = (H div(base)$^{i+1}$ mod(base)$^i$)
+PLACE(j) = (H div(BASE)$^{i+1}$ mod(BASE)$^i$)
 
 In this case, H is a number that exists which one can interpret as a computation history of M on I.
 
-SAME(i, j, k, l) = (H div(base)$^j$ mod(base)$^i$) =  (H div(base)$^l$ mod(base)$^k$)
+SAME(i, j) = (PLACE(i) = PLACE(j))
 
+STATE(i) = (PLACE(i) = q\_y $\lor$ PLACE(i) = q\_p $\lor$ PLACE(i) = q\_h)
+
+TABLE(i,j) = (STATE(i+1), PLACE(i+2) = q\_p0 $\land$ PLACE(j+1), STATE(j+2) = 0q\_p $\land$ SAME(i, j)) $\lor$  (STATE(i+1), PLACE(i+2) = q\_p1 $\land$ PLACE(j+1), STATE(j+2) = 1q\_p $\land$ SAME(i, j)) $\lor$  (STATE(i+1), PLACE(i+2) = q\_p* $\land$ STATE(j+1), PLACE(j+2) = q\_p* $\land$ SAME(i, j))  $\lor$  (STATE(i+1), PLACE(i+2) = q\_y1 $\land$ PLACE(j+1), STATE(j+2) = 0q\_y $\land$ SAME(i, j)) $\lor$  (STATE(i+1), PLACE(i+2) = q\_y0 $\land$ PLACE(j+1), STATE(j+2) = 1q\_y $\land$ SAME(i, j)) $\lor$  (STATE(i+1), PLACE(i+2) = q\_y* $\land$ PLACE(j+1), STATE(j+2) = 0q\_h* $\land$ SAME(i, j))
+
+Proof:
+
+PLACE(i) = \# $\land$ PLACE(j) = \# $\land$ PLACE(k) = \# $\land$ PLACE(l) = \# $\land$
+
+$\forall$x $i < x < j$   $\implies$ PLACE(x) $\neq$ \# $\land$
+
+$\forall$x $j < x < k$   $\implies$ PLACE(x) $\neq$ \# $\land$
+
+$\exists$a $i < i+a < j$   $\implies$ PLACE(i+a) = q\_p $\lor$  PLACE(i+a) = q\_y $\lor$  PLACE(i+a) = q\_h $\land$
+
+$\forall$x $1 \leq x < a-1$   $\implies$ PLACE(i+x) = PLACE(j+x) $\land$
+
+$\forall$x $a+1 < x < j-1$   $\implies$ PLACE(i+x) = PLACE(j+x) $\land$
+
+TABLE(i+a, j+a)
 
 \end{document}
