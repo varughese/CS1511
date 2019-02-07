@@ -11,9 +11,9 @@
  
 \begin{document}
 
-\title{CS 1511 Homework X} % Replace X with the appropriate number
+\title{CS 1511 Homework 6} % Replace X with the appropriate number
 \author{Mathew Varughese, Justin Kramer, Zach Smith} 
-\date{Wednesday, Jan 30}
+\date{Monday, Feb 11}
 
 \maketitle
 
@@ -21,6 +21,63 @@
 \setlength{\parskip}{.2em}
 \setlength\parindent{0pt}
  
-\problem{\#.}
+\problem{12. (a)}
+A finite state machine could be constructed such that its language is the negation
+of the language of M. This can be done as it was in 1502. The accept states turn 
+into reject states and vice versa. 
+
+\problem{12. (b)}
+This can be done by creating a DFA (P) that has a language which the intersection
+of the language of L and the language of N. This can be done by making the states of P
+be the cross product of the states from L and the states of N. Then, the accept states
+are those states that have both accept states from L and N. The transition function
+would be determined by going to the state ($l$,$n$). $l$ is what the 
+transition function would do from DFA L and $n$ is where the transition function 
+for DFA N. The start state would be the the state that contains both of the start states.
+
+\problem{12. (c)}
+The states in Q will be the power set of the states of P. Say that the characters 
+in the alphabet for P were 4 bits (for x, y, z, w). This can be assumed 
+as we said they were properly encoded. Now, the characters in the alphabet will be 3
+bits long (x, y, z). The transition function will change so that it will change to the 
+state that contains the states that P would go to if w was a 0 or 1. This explanation works
+better with an example. Say in a DFA state A goes to B when w=0 and A goes to C when w=1. 
+In this new DFA, the set of states will be the power set of $\{ A,B,C \}$. So the states would 
+be $\{\{A\}, \{B\}, \{C\}, \{A, B\}, \{A, C\}, \{B, C\}, \{A, B, C\}\}$. Since it is an existential,
+we want to consider all possibilities for w. This means that from state A, the next state (given the 
+same x, y, and z) would be $\{B, C\}$. This would obviously get more complicated, but it is definitely
+possible.
+
+\problem{12. (d)}
+This will be done in a similar way to problem c. $\forall x P(x)$ is logically equivalent 
+to $\neg \exists \neg P(x)$. So,  $\forall z \exists w \ (x + y = z) \wedge \neg (y + z
+= w + x)$ is logically equivalent to $\neg \exists \ z ( \neg \exists w \  (x + y = z) \wedge \neg (y + z
+= w + x))$ To construct this, we first create a DFA that has a language which is the opposite of Q.
+Then, following the same idea in Part C, create a DFA that has states which are the power set
+of Q. Then, take that DFA and construct a new one that contains the complement of that ones's language.  
+
+\problem{12. (e)}
+The same idea can be done for machine S.
+
+\problem{12. (f)}
+This problem is the same asking asking whether $L(S)$ is non empty. The language DFA is empty 
+if there are no accept states, or if the accept states are not reachable from
+the start state. The algorithm for determining if $L(S)$ is not empty would be as follows: 
+
+\begin{enumerate}[topsep=0pt,itemsep=0pt]
+\item Mark the start state of S
+\item Repeat until no new states are marked:
+\item \hspace{1em} Mark any state that has a transition coming into from a state that is marked
+\item If no accept state is marked \underline{reject} otherwise \underline{accept}.
+\end{enumerate}
+
+\problem{12. (g)}
+Take the first order and break each piece between an and into a DFA of proper encoding.
+Then, continually construct each DFA from each "or" or "and" or "negation" by using the 
+same techniques that were done in previous problems. Then from the inside out, construct 
+new DFAs based on the quantifiers. If it is existential, then use the method in 12 c and if it is 
+a universal, then use the method in 12 d. After this finite automata is constructed, call it S and use
+the algorithm in part f to determine if it accepts any string. If it does, then it is true. Otherwise 
+it is false. 
 
 \end{document}
