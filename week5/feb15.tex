@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb, pgfplots}
+\usepackage{enumitem} 
+
+\newcommand{\problem}[1]{
+	\vskip 1em
+	{\large \textbf{#1}}
+}
+ 
+\begin{document}
+
+\title{CS 1511 Homework 8} % Replace X with the appropriate number
+\author{Mathew Varughese, Justin Kramer, Zach Smith} 
+\date{Friday, Feb 15}
+
+\maketitle
+
+
+\setlength{\parskip}{.5em}
+\setlength\parindent{0pt}
+ 
+\problem{15. a)}
+We can store one number that represents the count. We pass through the 
+input and every time we see a "(" we add a 1. Every time we see a ")" we 
+subtract a 1. If the count goes below 0 we rejected. At the end of the input 
+if the count is not 0 reject. Otherwise accept. 
+
+\problem{15. b)}
+Similar idea. 
+
+
+
+\end{document}

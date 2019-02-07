@@ -1,0 +1,45 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb, pgfplots}
+\usepackage{enumitem} 
+
+\newcommand{\problem}[1]{
+	\vskip 1em
+	{\large \textbf{#1}}
+}
+ 
+\begin{document}
+
+\title{CS 1511 Homework 7} % Replace X with the appropriate number
+\author{Mathew Varughese, Justin Kramer, Zach Smith} 
+\date{Wednesday, Feb 13}
+
+\maketitle
+
+
+\setlength{\parskip}{.5em}
+\setlength\parindent{0pt}
+ 
+\problem{14.}
+First we prove that definition 1 implies Definition 2. This is straight forward.
+
+Assume Definition 1 holds true. This means there exists a Turing Machine $M$, such
+that $M$ accepts $x$ iff $x \in L$. M halts on any $x$ in $ T(|x|)$ steps.
+
+Now, construct N that is identical to M and set $b = 1$. Now the second definition holds true, because
+N will halt on x within $1 * T(|x|)$ steps. 
+
+Now we prove the other direction. Assume Definition 2 is true. We have a 
+machine N that accepts $x$ if is $x \in L$. It also halts within $b * T(|x|)$ steps.
+Now, we will speed up the Turing Machine by a constant factor $b$. This is possible
+because we can use a larger tape alphabet. We can speed it up by a factor of 2 by
+making the new tape alphabet the characters that are the merge of two characters 
+on the tape. This will halven the tape length which would speed up the TM by 
+2. This can be done as many times until the TM is b times faster. In other words,
+we do this process $b/2$ times. Call this new TM M. Now, Definition 1 holds 
+true. 
+
+
+
+\end{document}
