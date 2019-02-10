@@ -83,19 +83,36 @@ it is false.
 \problem{13. (a)} 
 
 For this to be in $TIME(n^2)$ it would need to take steps proportional to the square of $|I|$.
-Saying $a = 100*(b_I)^2$ just changes the constant. This constant could be any positive integer,
-so while this may work for the constant 100, it may fail with another constant that you have not
-tested.
+Saying $a = 100*(b_I)^2$ doesn't work because the $b_I$ would not be a constant, since
+$b_I$ would grow in size as I grows. You need to show that the Turing Machine stops in a|I| 
+steps, so a needs to be a constant. In this case it is not a constant. 
+
 
 \problem{13. (b)}
 
- If S can run this simulation in less than $a = 100*(b_I)^2$ steps, then S can run this simulation
-in any amount of steps larger than $a = 100*(b_I)^2$ steps. If L is in TIME($n^22^{2n}$), then
-there exists a constant such that S runs in $dn^22^{2n}$ due to the Turing Machine S being able
-to increase its speed by a constant factor through the packing together tape symbols of the original
-tape symbols. Thus, this d may be equal to 100, and  $100(b_I)^22^{2(b_I)}$ will be a larger amount
-of steps then $100*(b_I)^2$ steps. This means that S will always be able to run in less than $100(b_I)^22^{2(b_I)}$
-steps, so L is in TIME($n^22^{2n}$).
+What we need to prove here is that with our Turing Machine S that it will take at most
+$dn^22^{2n}$ steps. In this case, our n would be equal to our input I. So we are saying
+that our Turing Machine S has input I and a string version of our Turing Machine and input
+$b_I$ (with some constant c) such that $cI^2(b_I)^2 \leq dn^22^{2n}$. This will work
+since the $b_I$ can express $2^n$ numbers with an input length of n digits. Therefore,
+the two sides will balance out since $b_I$ squared with be equal to $2^{2n}$.
+
+\problem{13. (c)}
+
+i.
+
+L' is not in TIME(n) because the language is defined as a collection of strings that
+a Turing machine can run and it will not accept within b|I| steps. An attached sheet
+will show this proof by diagonalization.
+
+ii.
+
+L' is in $TIME(n^c)$ for, at the smallest, a constant c = 4. This is because in unary,
+our encoding of $b_I$ will now be able to store n numbers with n digits. In this case, our
+formula for the least amount of steps will be (with a constant d) $dI^2(b_I)^2$. In this case, 
+$I^2$ will be $n^2$ and $(b_I)^2$ will also be $n^2$, so the overall algorithm will take at 
+minimum $n^4$ steps.
+
 
 
 
