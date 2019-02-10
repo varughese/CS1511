@@ -83,26 +83,29 @@ it is false.
 \problem{13. (a)} 
 
 For this to be in $TIME(n^2)$ it would need to take steps proportional to the square of $|I|$.
-Saying $a = 100*(b_I)^2$ doesn't work because the $b_I$ would not be a constant, since
-$b_I$ would grow in size as I grows. You need to show that the Turing Machine stops in a|I| 
-steps, so a needs to be a constant. In this case it is not a constant. 
+Saying $a = 100*(b_I)^2$ doesn't work because it would depend on $b_I$ making it not a constant.
+$b_I$ is dependent on $I$, so that would mean $a$ would change.. You need to show that the Turing Machine stops in 
+$a|I|^c$ steps, so $a$ needs to be a constant. In this case it is not a constant. 
 
 
 \problem{13. (b)}
 
 What we need to prove here is that with our Turing Machine S that it will take at most
-$dn^22^{2n}$ steps. In this case, our n would be equal to our input I. So we are saying
+$dn^22^{2n}$ steps. In this case, our n would be equal to the length our input I. So we are saying
 that our Turing Machine S has input I and a string version of our Turing Machine and input
-$b_I$ (with some constant c) such that $cI^2(b_I)^2 \leq dn^22^{2n}$. This will work
-since the $b_I$ can express $2^n$ numbers with an input length of n digits. Therefore,
-the two sides will balance out since $b_I$ squared with be equal to $2^{2n}$.
+$b_I$ (with some constant c) such that $cI^2(b_I)^2 \leq dn^22^{2n}$. Given a 
+string of length $|I|$, the maximum possible number of possibilities would 
+be $2^{|I|}$, or $2^n$. This means at maximum $b_I$ can only be $2^n$.
+Therefore, after substituting $2^n$ for $b_I$, we get the expression 
+$cn^2(2^n)^2 \leq dn^22^{2n}$. This makes it clear that 
+$cI^2(b_I)^2 \leq cn^2(2^n)^2 \leq dn^22^{2n}$
 
 \problem{13. (c)}
 
 i.
 
 L' is not in TIME(n) because the language is defined as a collection of strings that
-a Turing machine can run and it will not accept within b|I| steps. An attached sheet
+a Turing machine can run and it will not accept within $b|I|$ steps. An attached sheet
 will show this proof by diagonalization.
 
 ii.
