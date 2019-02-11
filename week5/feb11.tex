@@ -105,8 +105,12 @@ $cI^2(b_I)^2 \leq cn^2(2^n)^2 \leq dn^22^{2n}$
 i.
 
 L' is not in TIME(n) because the language is defined as a collection of strings that
-a Turing machine can run and it will not accept within $b|I|$ steps. An attached sheet
-will show this proof by diagonalization.
+a Turing machine can run and it will not accept within $b|I|$ steps. This proof can
+be shown by the diagonalization we did in class. This diagonalization takes on the
+column the input I, and the rows it takes the string representation of a possible
+constant a Turing machine. Then when you have where these combinations of accept
+you put a 1 and 0 when you reject. When you take the diagonal and switch all 1's to
+0's and all 0's to 1's, you get something that is not in TIME(n).
 
 ii.
 
