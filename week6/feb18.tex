@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb, pgfplots}
+\usepackage{enumitem} 
+
+\newcommand{\problem}[1]{
+	\vskip 1em
+	{\large \textbf{#1}}
+}
+ 
+\begin{document}
+
+\title{CS 1511 Homework 9} % Replace X with the appropriate number
+\author{Mathew Varughese, Justin Kramer, Zach Smith} 
+\date{Monday, Feb 18}
+
+\maketitle
+
+
+\setlength{\parskip}{.2em}
+\setlength\parindent{0pt}
+ 
+\problem{16.}
+We wish to show that if a Turing Machine $S$ accepts $B$ in LOGSPACE
+then there is a Turing Machine $U$ that accepts $A$ in LOGSPACE.
+
+We know that we have a Turing Machine $T$ that takes an input so that
+$x \in A \iff T(x) \in B$
+
+The idea of U is to run the output of T
+on S and if S accepts, U accepts. Otherwise 
+it rejects. However, simulating T 
+would take linear space since it's
+output takes linear space. It has linear is
+output for the following reason.
+
+The output space of T is linearly bounded
+by the length of the input ($I$). This is 
+because T is LOGSPACE. So, it has a total 
+of x maximum positions it can move on the 
+tape. (Say length of alphabet is 2, then there
+are $log_2{|I|}$ spots, so $2^{log_2{|I|}}$ possibilites,
+which simplifies to $|I|$).
+
+
+We construct U as follows:
+
+U takes in input x. 
+U also has a counter variable. 
+This counter variable will take log space 
+to hold. Run S, and whenever S needs to 
+read a value from the output of T store 
+the position of T's output it needs 
+to read in the counter variable. 
+Then rerun T until this space is outputted is generated 
+and use that value on S. Repeat this process 
+until S is finished. Then U accepts if S accepts and reject 
+otherwise.
+
+
+
+\problem{17. a)}
+A language $C$ is complete for EXPSPACE iff 
+
+1) $C \in EXPSPACE$ and 
+
+2) $\forall L \ \in EXPSPACE, \ \ \ L \leq _r C $
+
+\vskip 1em
+
+Let $C'$ be an arbitrary language in EXPSPACE. 
+
+$ \exists \ TM \ T \ \ \exists k $ such that 
+
+- $\forall I \ T $ halts on $I$ using space $\leq 2^{{|I|}^k}$.
+
+- $\forall I \ T $ accepts $I$ iff $I \in C'$. 
+
+\vskip 1em
+
+First we prove part 2. We have a language $C$.
+$C = \{ (I, T, k) \mid T \text{ accepts } I \text{ in } \leq 2^{{|I|}^k} \text{ space } \}$
+
+There exists a turing machine $TM_C$ that decides $C$.
+
+For every $L$ in EXPSPACE, there exists a TM ($T'$) that performs the reduction $L \leq _r C $
+in poly time. 
+
+For any language $L$, the Turing Machine $T'$ would return the 
+value of $TM_C$ with input $(I, T, k) $.
+
+
+\end{document}
