@@ -80,53 +80,34 @@ $ \exists \ TM \ T \ \ \exists k $ such that
 \vskip 1em
 
 First we prove part 2. We have a language $C$.
-$C = \{ (I, T, k) \mid T \text{ accepts } I \text{ in } \leq 2^{{|I|}^k} \text{ space } \}$
+$C = \{ (I, T, 2^{|I|^k}) \mid T \text{ accepts } I \text{ in } \leq 2^{{|I|}^k} \text{ space } \}$
 
 There exists a turing machine $TM_C$ that decides $C$.
 
 For every $L$ in EXPSPACE, there exists a TM ($T'$) that performs the reduction $L \leq _r C $
-in poly time. 
+in poly time with (I, T, k) as an input.
 
 For any language $L$, the Turing Machine $T'$ would return the 
-value of $TM_C$ with input $(I, T, k) $.
+value of $TM_C$ with input $(I, T,  2^{|I|^k}) $.
 
 This $TM_T$ and integer k would be baked into the algorithm for T'.
 
-Second we prove part 1. We need to show that $C \in EXPSPACE$.
+The encoding of k into $2^{|I|^k}$ will only take polynomial time.
 
-There exists a $TM_C$ that decides $C$.
-
-This $TM_C$ takes an input (I, T, k).
-
-This machine will either halt on accept or reject, or halt and reject if it runs
-for more than $2^{2^{|I|^{k}}}$ steps.
+Simulating $TM_C$ with a decider  $TM_M$ will take $2^{I, T, 2^{|I|^k}}$ all raised to k' space.
+In all cases of k', this simulation will always be in EXPSPACE, showing that $TM_C$ is in EXPSPACE.
+This is because $TM_M$ will always have a maximum space requirement that is equal to or greater
+than our space requirement of $2^{{|I|}^k}$ space.
 
 \problem{17. b)}
-A language $C$ is complete for EXPSPACE iff 
+Our proof will be exactly the same as above, except with one change.
 
-1) $C \in EXPSPACE$ and 
+Our language C will now be defined as such:
 
-2) $\forall L \ \in EXPSPACE, \ \ \ L \leq _r C $
+$C = \{ (I, T, c^{|I|^k}) \mid T \text{ accepts } I \text{ in } \leq c^{{|I|}^k} \text{ space } \}$
 
-\vskip 1em
-
-Let $C'$ be an arbitrary language in EXPSPACE. 
-
-$ \exists \ TM \ T \ \ \exists k $ such that 
-
-- $\forall I \ T $ halts on $I$ using space $\leq (c/2)^{{|I|}^k} * 2^{{|I|}^k}$.
-
-- $\forall I \ T $ accepts $I$ iff $I \in C'$. 
-
-\vskip 1em
-
-First we prove part 2. We have a language $C$.
-$C = \{ (I, T, k) \mid T \text{ accepts } I \text{ in } \leq  (c/2)^{{|I|}^k} * 2^{{|I|}^k} \text{ space } \}$
-
-Now that we have established  $(c/2)^{{|I|}^k}$ as some constant factor being multiplied to $2^{{|I|}^k}$,
-we can dismiss the c since this constant multiplier will not affect it being in EXPSPACE.
-
-The proof will then follow the same path as 17 (a).
+The encoding of k into $c^{|I|^k}$ will still only take polynomial time and our simulation will always take
+a maximum space requirement that is equal to or greater than our space requirement of $c^{{|I|}^k}$ space.
 
 
 
