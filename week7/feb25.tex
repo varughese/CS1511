@@ -2,10 +2,7 @@
  
 \usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb}
-\usepackage{enumitem} 
-\usepackage{graphicx}
-\graphicspath{ {./images/} }
-
+\usepackage{enumitem}
 
 \newcommand{\problem}[1]{
 	\vskip 1em
@@ -26,7 +23,7 @@
  
 \problem{19. a}
 
-EXACT INDSET = \{$<G, k> $= : the largest independent set in G has size exactly k\}.
+EXACT INDSET = \{$<G, k> \mid $ the largest independent set in G has size exactly k\}.
 
 To show EXACT INDSET $\in$ $\pi_2^p$, we need to demonstrate two things.
 
@@ -39,7 +36,17 @@ of G, $\exists w$ where w is the largest independent set of size exactly k.
 
 To solve this in poly-time, we will need 3 read-only tapes and 1 work tape, 
 which is based on a simple scaling from our 2 read-only 1 work tape model
-with $\pi_1^p$.
+with $\pi_1^p$. 
+
+Basically, it reads on the second tape the set of vertices. It goes through the tape 
+and checks each vertex in the set and marks it on the graph (on the first tape). 
+When it does this, 
+it makes sure adjacent vertices are not touching to ensure it is an independent
+set. 
+
+Then, it checks the third tape, which is another set. It just needs to validate 
+that this set is also a indepdent set and that it is larger or equal to in 
+size to the set on the 2nd tape.
 
 \problem{19. b}
 
