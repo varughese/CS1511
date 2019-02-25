@@ -86,38 +86,57 @@ with $\Sigma_2^p$.
 
 \problem{20. a}
 
-3SAT = \{$<\phi> $= : $\phi$ is a satisfiable 3CNF formula\}.
+% 3SAT = \{$<\phi> $= : $\phi$ is a satisfiable 3CNF formula\}.
 
-To reduce 3SAT to its complement, we need to have an algorithm for 
-3SAT that makes a call to its complement and runs in polynomial time.
+% To reduce 3SAT to its complement, we need to have an algorithm for 
+% 3SAT that makes a call to its complement and runs in polynomial time.
 
-Here is the algorithm.
+% Here is the algorithm.
 
-L $\in$ 3SAT
+% L $\in$ 3SAT
 
-$\phi \in$ L iff $\phi \in $ the compliment of 3SAT
+% $\phi \in$ L iff $\phi \in $ the compliment of 3SAT
 
-Call to L($\phi$)
+% Call to L($\phi$)
 
-$\phi_2= \neg \phi$
+% $\phi_2= \neg \phi$
 
-Call to complement 3SAT($\phi_2$)
+% Call to complement 3SAT($\phi_2$)
 
-This would mean that $\Sigma_n^p$ = $\pi_n^p$ with n = 1, and then
-for any n $\geq$ 1 we could define n TM's, with each having a one-to-one
-correspondence with their respective oracles of $\Sigma_n^p$. Then, we could
-say a TM M is a concatenation of M1  ... Mn to prove that $\Sigma_n^p$ answers yes
-iff M does so.
+% This would mean that $\Sigma_n^p$ = $\pi_n^p$ with n = 1, and then
+% for any n $\geq$ 1 we could define n TM's, with each having a one-to-one
+% correspondence with their respective oracles of $\Sigma_n^p$. Then, we could
+% say a TM M is a concatenation of M1  ... Mn to prove that $\Sigma_n^p$ answers yes
+% iff M does so.
 
-If this would be possible in polynomial time, then we could take
-any element in NP, change it to its compliment, run an algorithm 
-in co-NP with that element and show reducability in poly-time. 
+% If this would be possible in polynomial time, then we could take
+% any element in NP, change it to its complement, run an algorithm 
+% in co-NP with that element and show reducability in poly-time. 
 
-The same could be done with any element in co-NP, which would
-therefore make the languages equal.
+% The same could be done with any element in co-NP, which would
+% therefore make the languages equal.
 
-Also NP $\in \Sigma_1^p$ and co-NP $\in \pi_1^p$, so if the two sets of
-languages were equal then NP would equal co-NP by definition.
+% Also NP $\in \Sigma_1^p$ and co-NP $\in \pi_1^p$, so if the two sets of
+% languages were equal then NP would equal co-NP by definition.
+
+If 3SAT is reducible to its complement in Karp reductions then there 
+exists a polynomial function $F$ such that  $x \in 3SAT \iff F(x) \in \overline{3SAT}$.
+
+By this logic, since 3SAT is NP complete, every language L in NP can 
+be reduced to 3SAT. And since this F exists, every language in NP 
+could be reduced to $\overline{3SAT}$ in poly time. 
+
+$\overline{3SAT} \in $ CoNP. So every language in NP would be in CoNP,
+because then there would exists a reduction to $\overline{3SAT} $. This means
+every L in NP would be in CoNP.
+
+Also, if there is a reduction from 3SAT to its complement, then there exists 
+a reduction from the complement of 3SAT to 3SAT. This is because if 
+$A \leq B$, then $\overline{A} \leq \overline{B}$. This is because 
+if there is a function to reduce a language to another in polynomial time, 
+another function can be constructed for the complement of that language
+which negates the membership. By this logic and the previous ideas, it can 
+be shown every language in CoNP would be in NP. Therefore, CoNP = NP.
 
 
 \problem{20. b}
