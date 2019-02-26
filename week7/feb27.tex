@@ -49,6 +49,36 @@ $L_2$ $\in$ CoNP, L = $L_1 \cap L_2$.
 
 \problem{21 c)}
 
+We need to show $\forall L \in DP \leq EXACT INDSET in poly time$
+
+In order to show this, we will need two TM's T and W.
+
+First off, any language in DP consists of the intersection of two languages,
+L1 and L2. L1 $\in$ NP and L2 $\in$ co-NP. In this case, we will show that this
+reduction will work for an arbitrary L1 and L2 by reducing a NP-Complete problem
+to EXACT INDSET with TM T and by reducing a co-NP-Complete problem to EXACT 
+INDSET with TM W, both in poly-time. This way, any intersection of L1 and L2 for 
+arbitrary L1's and L2's will work.
+
+Our NP-Complete language will be INDSET, which is proven to be NP-Complete in the book.
+
+Below is our algorithm.
+
+Begin with T(G, k, n) with a graph G and a integer k and n
+
+Loop this Turing Machine, beginning with k = 0 and going until k = number of nodes in the graph.
+
+This can be done in poly-time.
+
+If this TM doesn't accept when k = n, reject.
+
+If this TM accepts when k > n, reject.
+
+Run EXACT INDSET(G, n) 
+
+Our co-NP-Complete language with be 
+
+
 
 
 \end{document}
