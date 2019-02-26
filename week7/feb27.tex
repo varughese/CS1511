@@ -21,34 +21,33 @@
 \setlength{\parskip}{.2em}
 \setlength\parindent{0pt}
  
-\problem{21. part b}
+\problem{21. b)}
 
-EXACT INDSET = \{$<G, k> \mid $ the largest independent set in G has size exactly k\}.
+EXACT INDSET = \{$\langle G, k \rangle \mid $ the largest independent set in G has size exactly k\}.
 
-To show EXACT INDSET $\in$ $\pi_2^p$, we need to demonstrate two things.
+INDSET = \{$\langle G, k \rangle \mid $ there exists an independent set in G with size k\}.
 
-$\forall x \forall y \forall z$ T(x, y, z) runs in time $\mid x \mid^k$
+LE INDSET = \{$\langle G, k \rangle \mid $ all sets in G have size $\leq$ k \}.
 
-$\forall x \exists y$ T(x, y, z) accepts iff x $\in$ EXACT INDSET
+EXACT INDSET = INDSET $\cap$ LE INDSET
 
-Our language will now become $\forall x$, with x being an independent set
-of G, $\exists w$ where w is the largest independent set of size exactly k.
+INDSET $\in$ NP. This is shown in a previous theorem. The polynomial verifier
+would just check the given set and check if it is independent, if it is in G,
+and if it is of length k.
 
-To solve this in poly-time, we will need 3 read-only tapes and 1 work tape, 
-which is based on a simple scaling from our 2 read-only 1 work tape model
-with $\pi_1^p$. 
+LE INDSET is in CoNP. This is because it is a "for all" (for all set in G ...).
+More formally, the Turing Machine verifier would be the same as that above.
 
-Basically, it reads on the second tape the set of vertices. It goes through the tape 
-and checks each vertex in the set and marks it on the graph (on the first tape). 
-When it does this, 
-it makes sure adjacent vertices are not touching to ensure it is an independent
-set. 
+EXACT INDSET is the union of these. This is by definition. Every element in 
+EXACT INDSET will be in INDSET. If the largest independent set in G 
+has size exactly k, then there definitely exists a set of size k. Every element 
+is also in LE INDSET. If the largest set has size exactly k, then it all sets will have 
+size less than or equal to k. 
 
-Then, it checks the third tape, which is another set. It just needs to validate 
-that this set is also a indepdent set and that it is larger or equal to in 
-size to the set on the 2nd tape.
+So, EXACT INDSET is in DP. $L_1$ = INDSET, $L_1$ $\in$ NP, $L_2$ = LE INDSET .
+$L_2$ $\in$ CoNP, L = $L_1 \cap L_2$.
 
-\problem{21. part c}
+\problem{21 c)}
 
 
 
