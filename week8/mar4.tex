@@ -28,7 +28,23 @@
 \problem{25.)}
 Take a language L in PH.
 
-L = $\{$ $<$x, k$> \mid$ where $\exists$ a $C_{\mid x \mid}$ Boolean circuit with ${\mid x \mid}^k$ gates
+L = $\{$ $<$x, k$> \mid$ where $\exists$ a $C_{\mid x \mid}$ Boolean circuit with ${\mid x \mid}^k$ gates, and $\forall$ circuits D with
+less than ${\mid x \mid}^k$ gates, the circuit does not compute the same Boolean function as $C_{\mid x \mid}$.
+
+This language is clearly in $\Sigma_2^P$, so therefore L is a language in PH.
+
+A machine to check if a set of strings x is in L will have a runtime of O($2^{x^k}$) when simulated on a Turing Machine.
+
+The Turing Machine will take have to construct every possible circuit with less than ${\mid x \mid}^k$ gates, which will take
+O($2^{x^k}$).
+
+With this in mind, the amount of space necessary (circuit complexity necessary) will be $\Omega$($n^k$).
+
+This is due to our circuit being able to hardwire in all the possibilities from our Turing Machine in polynomial time.
+
+In exponential time, we can use poly-space to model our Turing Machine.
+
+Thus, for every k $>$ 0 there is a language in PH whose circuit complexity is $\Omega$($n^k$).
 
 
 \end{document}
