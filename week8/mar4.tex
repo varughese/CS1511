@@ -23,7 +23,15 @@
 \setlength\parindent{0pt}
  
 \problem{24.)}
+According to our textbook, a circuit of size at most S can be represented as a string of 9 * S log S bits. This can create 
+a number of circuits $2^{9S\log{S}}$. In our example, a circuit of size $n^4$ would be able to create $2^{9n^4\log{n^4}}$
+circuits and a circuit of size $n^2$ would be able to create $2^{9n^2\log{n^2}}$ circuits.
 
+Thus, the larger amounts of circuits buildable with $n^4$ gates would allow for more functions to be computed than the smaller
+circuit. There are therefore functions that can be computed with $n^4$ gates that can not be computed by $n^2$ gates.
+
+This proof is very similar to showing that when S = $2^n/(10n)$, you can not compute as many functions as there are possible,
+since there are $2^{2^n}$ possible functions.
 
 \problem{25.)}
 Take a language L in PH.
