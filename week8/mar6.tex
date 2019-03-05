@@ -2,7 +2,7 @@
  
 \usepackage[margin=1in]{geometry} 
 \usepackage{amsmath,amsthm,amssymb}
-\usepackage{enumitem} 
+\usepackage{enumitem}
 
 \newcommand{\problem}[1]{
 	\vskip 1em
@@ -13,7 +13,7 @@
 
 \title{CS 1511 Homework 14} % Replace X with the appropriate number
 \author{Mathew Varughese, Justin Kramer, Zach Smith} 
-\date{Tues, Mar 5}
+\date{Wednesday, March 6}
 
 \maketitle
 
@@ -21,8 +21,28 @@
 \setlength{\parskip}{.2em}
 \setlength\parindent{0pt}
  
-\problem{26}
 
+\problem{26. a)}
+If a language is in ZPP, then the polynomial-time PTM M can prove that
+the language is in ZPP. 
+
+For this Turing Machine, it will either output the correct answer or "DON'T KNOW".
+
+There is at most a 1/2 chance that it outputs "DON'T KNOW". If the machine is run once,
+then the chance that it outputs this is at most 1/2, with at least a 1/2 chance of outputting
+the correct answer.
+
+If the machine is run twice, there is at most a 1/4 chance that it doesn't output the correct answer.
+
+If you take this to a limit of infinity, there is no chance that you do not eventually output the correct answer
+when you run the machine an infinite amount of times. It will take poly-time to run, so it doesn't matter if we simulate
+this machine for many many times.
+
+In the other direction, we can use Markov's inequality to show that with our PTM M, L is in ZPP.
+
+
+
+\problem{26. b)}
 
 \problem{27}
 Lemma 7.12 says that 
@@ -64,6 +84,7 @@ us what the answer to this question is. So we flip
 We flip a coin i times. We count the 
 distribution of heads and tails. We can say with p 
 confidence whether or not M halts w.
+
 
 \problem{28}
 First we show NP $\in$ PP. Then we show coNP $\in$ PP.
