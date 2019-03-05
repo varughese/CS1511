@@ -1,0 +1,71 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem} 
+
+\newcommand{\problem}[1]{
+	\vskip 1em
+	{\large \textbf{#1}}
+}
+ 
+\begin{document}
+
+\title{CS 1511 Homework 14} % Replace X with the appropriate number
+\author{Mathew Varughese, Justin Kramer, Zach Smith} 
+\date{Tues, Mar 5}
+
+\maketitle
+
+
+\setlength{\parskip}{.2em}
+\setlength\parindent{0pt}
+ 
+\problem{26}
+
+
+\problem{27}
+Lemma 7.12 says that 
+A coin with Pr[Heads] = ρ 
+can be simulated by a PTM in 
+expected time O(1) provided the 
+ith bit of ρ is computable in 
+poly(i) time.
+
+We can construct this p such that 
+a random coin that comes up with this probability
+will make a Turing Machine able to 
+decide a language in undecidable time.
+
+Assume that this is possible to make a PTM 
+that simulates a coin flip with probability p. The ith
+bit of p can be computed in constant time.
+
+The p is comprised of 1s and 0s. The turing machine
+in question (say TM T) generates a random "x". This 
+x is a random variable. Then we compare x to that
+probability p. We do this by comparing bit
+by bit. If p is 0.0101010 and x is 0.0101011, 
+we know that x has a greater probability than 
+p.
+
+We make each bit of this p represent whether a 
+Turing Machine will halt on a particular language.
+So, order every Turing Machine and input w
+like (M,w) and correspond it with a integer. 
+The ith integer in p will be a 1 if M halts on w
+and 0 if not.
+
+Then, the Turing Machine T could solve the halting
+problem. To figure out if M halts on w,
+it would first correspond that M,w pair to an integer.
+Call this integer i. The ith digit of p would tell
+us what the answer to this question is. So we flip 
+We flip a coin i times. We count the 
+distribution of heads and tails. We can say with p 
+confidence whether or not M halts w.
+
+\problem{28}
+First we show NP $\in$ PP. Then we show coNP $\in$ PP.
+
+\end{document}
