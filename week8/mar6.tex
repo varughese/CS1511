@@ -23,6 +23,23 @@
 \setlength\parindent{0pt}
  
 \problem{26. a)}
+If a language is in ZPP, then the polynomial-time PTM M can prove that
+the language is in ZPP. 
+
+For this Turing Machine, it will either output the correct answer or "DON'T KNOW".
+
+There is at most a 1/2 chance that it outputs "DON'T KNOW". If the machine is run once,
+then the chance that it outputs this is at most 1/2, with at least a 1/2 chance of outputting
+the correct answer.
+
+If the machine is run twice, there is at most a 1/4 chance that it doesn't output the correct answer.
+
+If you take this to a limit of infinity, there is no chance that you do not eventually output the correct answer
+when you run the machine an infinite amount of times. It will take poly-time to run, so it doesn't matter if we simulate
+this machine for many many times.
+
+In the other direction, we can use Markov's inequality to show that with our PTM M, L is in ZPP.
+
 
 
 \problem{26. b)}
