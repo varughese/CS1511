@@ -87,6 +87,39 @@ confidence whether or not M halts w.
 
 
 \problem{28}
-First we show NP $\in$ PP. Then we show coNP $\in$ PP.
+First we show NP $\in$ PP. Then we show coNP $\in$ PP. This will 
+prove that NP $\cup$ coNP $\in$ PP.
+
+If L is in NP, then there exists a TM T
+that verifies an answer to L in a polynomial number
+of steps.
+
+For every x, x is in L, iff $\exists y$ 
+T(x, y) accepts.
+
+So build a $T'$ so it tries w values for y. If this accepts, accept.
+If not, flip a coin. The coin should biased so it gives heads
+slighter less than half of the time. This "slighter half" will
+be of size $w/2^n$.
+If the coin returns heads, accept.
+Otherwise reject. This will make it so if an x is in L, it will 
+accept with more than 1/2 probability. 
+
+So, NP is in PP. 
+
+CoNP is in PP for a similar reason. If L is in CoNP, there exists
+a TM T that halts on an answer L in a polynomial number of steps.
+
+For every x, x is in L, iff $\forall y$ T(x, y) accepts.
+
+So, x is not in L if there exists a y that T(x, y) rejects. We apply 
+the same logic of the previous problem. We try some inputs for y. If they
+cause it to fail, than we reject. Then, we flip a biased coin that gives
+heads slightly higher than 1/2 of the time. Then we reject.
+
+
+
+
+
 
 \end{document}
