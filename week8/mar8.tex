@@ -1,0 +1,57 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+
+\newcommand{\problem}[1]{
+	\vskip 1em
+	{\large \textbf{#1}}
+}
+ 
+\begin{document}
+
+\title{CS 1511 Homework 15} % Replace X with the appropriate number
+\author{Mathew Varughese, Justin Kramer, Zach Smith} 
+\date{Friday, March 8}
+
+\maketitle
+
+
+\setlength{\parskip}{.2em}
+\setlength\parindent{0pt}
+ 
+
+\problem{29.)}
+
+Let L $\in$ BP $\cdot$ NP.
+
+$\exists$TM T and $\exists$Integer k such that:
+
+$\forall x \forall R$ T(x,R) halts in $\mid x \mid^k$ steps
+
+x $\in$ L iff prob(T(x,R) $\in$ 3-SAT) $\geq$ 3/4
+
+x $\notin$ L iff prob(T(x,R) $\in$ 3-SAT) $\leq$ 1/4
+
+First off, we will ignore the second tape in this T.
+
+We will create our circuit C to accept two inputs (x,y) with x being an encoding of T.
+
+The y will be hardwired to be our correct set R. Below is how we will build this correct set.
+
+If this machine is run $n^2$ times, then the prob(T is wrong) becomes $<$ $1/4^n$ according
+to statistics.
+
+If we get wrong answers, we can simply throw them away. We build R from the correct set.
+
+By the union bound, $\forall n$, $\exists$ R such that $\forall$ x $\mid x \mid$ = n implies 
+T(x, R) is correct. We just need to find an R that works.
+
+$\exists C_n$ family of circuits $\{C_n\}_{n \geq 1}$ such that
+
+L $\in$ NP/Poly
+
+
+
+\end{document}
