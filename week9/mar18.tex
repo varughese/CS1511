@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem}
+
+\newcommand{\problem}[1]{
+	\vskip 1em
+	{\large \textbf{#1}}
+}
+ 
+\begin{document}
+
+\title{CS 1511 Homework 16} % Replace X with the appropriate number
+\author{Mathew Varughese, Justin Kramer, Zach Smith} 
+\date{Monday, March 18}
+
+\maketitle
+
+
+\setlength{\parskip}{.2em}
+\setlength\parindent{0pt}
+ 
+
+\problem{30.)}
+
+Let L $\in$ BPL.
+
+$\exists$TM T and $\exists$Integer k such that:
+
+$\forall x \forall R$ T(x,R) halts
+
+if x $\in$ L then prob(T(x,R) accepts) $\geq$ 3/4
+
+if x $\notin$ L then prob(T(x,R) accepts) $\leq$ 1/4
+
+Take an input x that has a length of n. Now we will have C be the number
+
+of configurations of TM T with input x. We will combine each configuration
+
+with another set of the same configurations to form a matrix. We will create 
+
+this matrix such that each cell will have a 1/2 probability if the second configuration
+
+is reachable from the first in one step, and a probability of 0 otherwise. With
+
+this created, each cell $W_t$ with configurations $c_1$ and $c_2$ is the probability
+
+of reaching configuration $c_2$ from $c_1$ in t steps, where $W_t$ is the matrix
+
+created by multiplying W by itself t times. By scaling this up, we can compute the
+
+accepting probability of T(x, R) and decide if x $\in$ L. With this we can see that each 
+
+probability is a multiple of $1/2^{poly(n)}$, which we can represent with a poly
+
+number of digits. Therefore, L $\in$ P and BPL $\subseteq$ P.
+
+\problem{31.)}
+
+We already proved that $BP * NP \subseteq NP/Poly$. From here, if we can
+
+show that the complement of 3SAT $\in$ NP/poly then have shown that 
+
+$\Pi_3^p \subseteq \Sigma_3^p$, which would make PH collapse to $\Sigma_3^p$.
+
+Since we assuming that the complement of 3SAT $\in$ NP/poly, we can say that
+
+there exists a poly-sized circuit family that can decide the complement of 3 SAT with 
+
+a poly-sized string y that verifies if x $\in$ L. In other words, we have $\exists r\forall a \exists q$ and
+
+a y where r is a circuit that decides if $\phi$(a,q,c) is true with inputs of $phi$, y.
+
+This is a $\Sigma_3^p$ problem, so our proof is complete.
+
+\end{document}
