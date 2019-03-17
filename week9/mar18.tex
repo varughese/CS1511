@@ -26,13 +26,23 @@
 
 Let L $\in$ BPL.
 
-$\exists$TM T and $\exists$Integer k such that:
+$\exists $ TM T and $\exists$ integer k such that:
 
-$\forall x \forall R$ T(x,R) halts
+$\forall x \forall R$ T(x,R) halts using log space
 
 if x $\in$ L then prob(T(x,R) accepts) $\geq$ 3/4
 
 if x $\notin$ L then prob(T(x,R) accepts) $\leq$ 1/4
+
+\vskip 0.3cm
+
+LOGSPACE $ \subset $ P. This is because with $\log{n}$ space, 
+there are $2^{\log{n}}$ possible configurations for R. 
+This simplifies to polynomial time. 
+
+\vskip 0.3cm
+
+Now, there exists some $u$, where $u$ is a random assignment of 
 
 Take an input x that has a length of n. Now we will have C be the number
 
@@ -58,20 +68,49 @@ number of digits. Therefore, L $\in$ P and BPL $\subseteq$ P.
 
 \problem{31.)}
 
-We already proved that $BP * NP \subseteq NP/Poly$. From here, if we can
+If $L \in \text{BP} \cdot \text{NP}$, this means that we can probabliscally
+reduce $\overline{3SAT}$ to 3SAT. So, for most reductions, this 
+reduction will work. We wish to change this to be a $\exists \forall \exists $
+problem. 
 
-show that the complement of 3SAT $\in$ NP/poly then have shown that 
+We already proved that BP $ \cdot $ NP $\subseteq NP/Poly$. Therefore
+we know since co3SAT is in this language there is a family of circuits ($\exists
+C_n$) that decides 3SAT nondeterministically.
 
+\vskip 0.3cm
+
+From here, if we can show by repeatedly performing pairings of random
+strings, we can increase the probability to show that 
+
+If the length of the random string R is $m$, we can say there are
+$2^m$ different possible $m$'s. The probability that $T$ is incorrect
+is less than $\frac{1}{4^n}$ where $n$ is the length of $x$.
+
+\vskip 0.3cm
+
+Now in the BPP $\subset \Sigma_{2}^{p}$ proof we married (pair) each R with another R to decrease the expected
+number of R's that cause the machine to error. When we perform
+k marriages, the expected number of $R$s that cause the machine
+to error will be less than 1. This occurs when $k = \frac{m}{2n}$. Here we do
+something similar. We perform k marriages of reductions so that the number of
+"incorrect" reductions becomes less than 1. Then there must exist some 
+random pairing of reductions such that all reductions work. 
+
+\vskip 0.3cm
+
+Again, since we assuming that the complement of 3SAT $\in$ NP/poly, we can say that
+there exists a poly-sized circuit family that can decide the complement of 3 SAT with 
+a poly-sized string y that verifies if x $\in$ L. 
+
+In other words, we have $\exists C_n\forall u \exists r$ and
+$C_n$ is a circuit family that reduces if $\overline{3SAT}$ to 3SAT
+with either input $C_n$(r, u) or $C_n$(r, $r \oplus u$). 
+
+Since $\overline{3SAT}$ can be reduced to 3SAT by a $\Sigma_3^p$ algorithm, 
+this means  $\overline{3SAT}$ would be complete for $\Pi_3^p$. This means 
+that 
 $\Pi_3^p \subseteq \Sigma_3^p$, which would make PH collapse to $\Sigma_3^p$.
 
-Since we assuming that the complement of 3SAT $\in$ NP/poly, we can say that
 
-there exists a poly-sized circuit family that can decide the complement of 3 SAT with 
-
-a poly-sized string y that verifies if x $\in$ L. In other words, we have $\exists r\forall a \exists q$ and
-
-a y where r is a circuit that decides if $\phi$(a,q,c) is true with inputs of $phi$, y.
-
-This is a $\Sigma_3^p$ problem, so our proof is complete.
 
 \end{document}
