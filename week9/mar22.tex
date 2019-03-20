@@ -24,47 +24,7 @@
 
 \problem{32.)}
 
-Let L $\in$ BPL.
 
-$\exists $ TM T and $\exists$ integer k such that:
-
-$\forall x \forall R$ T(x,R) halts using log space
-
-if x $\in$ L then prob(T(x,R) accepts) $\geq$ 3/4
-
-if x $\notin$ L then prob(T(x,R) accepts) $\leq$ 1/4
-
-\vskip 0.3cm
-
-LOGSPACE $ \subset $ P. This is because with $\log{n}$ space, 
-there are $2^{\log{n}}$ possible configurations for R. 
-This simplifies to polynomial time. 
-
-\vskip 0.3cm
-
-Now, there exists some $u$, where $u$ is a random assignment of 
-
-Take an input x that has a length of n. Now we will have C be the number
-
-of configurations of TM T with input x. We will combine each configuration
-
-with another set of the same configurations to form a matrix. We will create 
-
-this matrix such that each cell will have a 1/2 probability if the second configuration
-
-is reachable from the first in one step, and a probability of 0 otherwise. With
-
-this created, each cell $W_t$ with configurations $c_1$ and $c_2$ is the probability
-
-of reaching configuration $c_2$ from $c_1$ in t steps, where $W_t$ is the matrix
-
-created by multiplying W by itself t times. By scaling this up, we can compute the
-
-accepting probability of T(x, R) and decide if x $\in$ L. With this we can see that each 
-
-probability is a multiple of $1/2^{poly(n)}$, which we can represent with a poly
-
-number of digits. Therefore, L $\in$ P and BPL $\subseteq$ P.
 
 
 \end{document}
