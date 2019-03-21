@@ -24,6 +24,28 @@
 
 \problem{32.)}
 
+The language QNR = \{ (a, p) $\mid$ a is not a quadratic residue modulo p where p is a prime.\}
+
+\vskip 0.3cm
+
+From Euler's criterion, we know that there are (p+1)/2 quadratic residues and (p-1)/2 quadratic
+nonresidues.
+
+\vskip 0.3cm
+
+In the private coin protocol, the verifier takes a random number r mod p and a random bit b $\in$ \{0,1\}
+and sends the prover $r^2$ mod p if b $=$ 0 and sends the prover $ar^2$ mod p if b $=$ 1.
+
+\vskip 0.3cm
+
+If a is a quadratic residue, then the prover has a 1/2 chance of guessing b correctly. Otherwise,
+the prover is certain of the value of b.
+
+\vskip 0.3cm
+
+We know from Euler's criterion that if a is not a quadratic residue, then $\mid S\mid$ will be equal to 
+(p-1)/2. If it is a quadratic residue, $\mid S\mid$ will be equal to (p+1)/2. With the set S being the
+set of quadratic or non-quadratic residues.
 
 
 
