@@ -31,9 +31,13 @@ possible thing to ask. This can be done in polynomial space.
 Then, it keeps track of the maximum probability. 
 
 \problem{33. c)}
+IP is in PSPACE. So, changing the 2/3 to 1 does not matter.
 
 \problem{33. d)}
-
+This means that the verifier always rejects when a string
+is not in the language. Since the verifier can ask 
+a polynomial number questions, this means that enough trials
+can be made to know if it is the language. So, IP' = NP.
 
 \problem{34}
 Prove that there exists a perfectly complete $AM[O(1)]$ protocol for proving a lower bound on set size.
