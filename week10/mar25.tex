@@ -23,31 +23,42 @@
 \problem{33. a)}
 The verifier could simulate say 1000 trials of the prover and pick the majority answer.
 Since the verifier is a BPP machine it still will error with low probability
-if the prover sends an incorrect result.
+if the prover sends an incorrect result, the verifier's work is not changed.
 
 \problem{33. b)}
 We have polynomial space so verifier writes down every
 possible thing to ask. This can be done in polynomial space.
-Then, it keeps track of the maximum probability. 
+Both the prover and verifier are polynomial in the run time,
+which is in PSPACE by the space-time hierarchy.
 
 \problem{33. c)}
 IP is in PSPACE. So, changing the 2/3 to 1 does not matter.
+Now we simply have something close to a RP machine, which is
+actually a subset of the BPP machine. Therefore it is still the same 
+thing, since it runs like a BPP machine that has been run many
+times.
 
 \problem{33. d)}
 This means that the verifier always rejects when a string
 is not in the language. Since the verifier can ask 
 a polynomial number questions, this means that enough trials
-can be made to know if it is the language. So, IP' = NP.
+can be made to know if it is the language. So, IP' = NP since
+we can verify with a poly-time verifier and with enough
+trials we can get a definite yes-no answer.
 
 \problem{34}
 Prove that there exists a perfectly complete $AM[O(1)]$ protocol for proving a lower bound on set size.
 
-Hint: First note that in the current set lower bound protocol we can have the prover choose
-the hash function. Consider the easier case of constructing a protocol to distinguish
-between the case $|S| \geq $ K and $|S| \leq $  1K where c>2 can even be a function of K. c
-If c is large enough, we can allow the prover to use several hash functions h1 , . . . , hi , and
-it can be proven that if $i$ is large enough, we’ll have $\cup_i hi(S)={0,1}k$.The gap 
-can be increased by considering instead of S the set Sl, that is the $l$ times cartesian product of S.
+In our current situation, our protocol for proving a lower bound on set size takes a polynomial amount
+of time most of the time, but it can take a constant amount of time sometimes.
+
+We begin with a set $S^l$, with l times the Cartesian product of our set S which we are using the length
+of to determine K.
+
+In this case, we suggest that there exists several sets of hash functions $h_1, h_2, ... h_i$ such that
+at a certain size $\cup_i hi(S^l)={0,1}^{kl}$ allows us to have the prover correctly give a set size lower bound
+in constant time everytime. This union of hash functions allows us to distinguish if $\mid S \mid \geq K$ or if
+$\mid S \mid \leq K/c$.
 
 
 \end{document}
