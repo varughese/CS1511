@@ -1,0 +1,35 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem} 
+
+\newcommand{\problem}[1]{
+	\vskip 1em
+	{\large \textbf{#1}}
+}
+ 
+\begin{document}
+
+\title{CS 1511 Homework 19} % Replace X with the appropriate number
+\author{Mathew Varughese, Justin Kramer, Zach Smith} 
+\date{Wednesday, March 27}
+
+\maketitle
+
+\setlength{\parskip}{.2em}
+\setlength\parindent{0pt}
+
+\problem{35. a)}
+The polynomial to replace z would be h(z) = $(r \lor w \lor \neg z) \land (\neg r \lor \neg w \lor z)$ with r and w
+being randomly generated values.
+
+\problem{35. b)}
+i. The integer S would be $\sum_{x=0}^{1}\prod_{y=0}^{1}\sum_{z=0}^{1} (x + y + (1-z)) * ((1-x) + (1-y) + z)$
+
+
+\problem{35. c)}
+
+
+
+\end{document}
