@@ -21,15 +21,64 @@
 \setlength\parindent{0pt}
 
 \problem{35. a)}
-The polynomial to replace z would be h(z) = $(r \lor w \lor \neg z) \land (\neg r \lor \neg w \lor z)$ with r and w
-being randomly generated values.
+The polynomial to replace z would be $\sum_{x=0}^{1}\prod_{y=0}^{1}\sum_{z=0}^{1} 1-(1-(xy(1-z))) * (1-((1-x)(1-y)z))$
+After multiplication, this becomes $\sum_{x=0}^{1}\prod_{y=0}^{1}\sum_{z=0}^{1} 1-(1-(xy-xyz)) * (1 - (z(1 - y - x + xy)$
+
+$1-(1-(xy-xyz)) * (1 - (z - zy - zx + zxy))$
+
+$1 - ((1 - (z -zy - zx + zxy)) - (xy+xyz) + (xyz - xy^2z - x^2zy + zx^2y^2 - xyz^2 + xy^2z^2 + x^2yz^2 - x^2y^2z^2)$
+
+$1 - (1 - z + zy + zx - zxy - xy - xyz + xyz - xy^2z - x^2zy + zx^2y^2 - xyz^2 + xy^2z^2 + x^2yz^2 - x^2y^2z^2$
+\vskip 0.3cm
+Which all finally becomes
+
+$\sum_{x=0}^{1}\prod_{y=0}^{1}\sum_{z=0}^{1} 1 - (1 - z - yz + xz - xyz - xy - xy^2z - x^2zy + zx^2y^2 - xyz^2 + xy^2z^2 + x^2yz^2 - x^2y^2z^2)$
 
 \problem{35. b)}
-i. The integer S would be $\sum_{x=0}^{1}\prod_{y=0}^{1}\sum_{z=0}^{1} (x + y + (1-z)) * ((1-x) + (1-y) + z)$
+i. The integer S would start with the polynomial
+$s(x) = \prod_{y=0}^{1}\sum_{z=0}^{1} 1 - (1 - z - yz + xz - xyz - xy - xy^2z - x^2zy + zx^2y^2 - xyz^2 + xy^2z^2 + x^2yz^2 - x^2y^2z^2)$
+added together having 0 and 1 for x to get S. Here would be those steps.
 
+\vskip 0.3cm
+WORK NEEDED HERE
+
+1. With x = 0, y = 0, z = 0
+
+\vskip 0.3cm
+
+ii. The polynomial is g(y) = $\sum_{z=0}^{1} 1 - (1 - z - yz + (1/3)z - (1/3)yz - (1/3)y - (1/3)y^2z - (1/3)^2zy + z(1/3)^2y^2 - (1/3)yz^2 + (1/3)y^2z^2 + (1/3)^2yz^2 - (1/3)^2y^2z^2)$
+
+\vskip 0.3cm
+
+iii. Arthur is checking if this second polynomial works such that g(0) * g(1) = s(1/3)
+to see if there is any issue with s(1/3). If there is, then there is proof that
+s(1/3) is inccorect.
 
 \problem{35. c)}
+i. The polynomial to replace z would now be 
 
+$\sum_{x=0}^{1}\prod_{y=0}^{1}\sum_{z=0}^{1} 1 - (1 - z - yz + xz - xyz - xy - xyz - xzy + zxy - xyz + xyz + xyz - xyz)$
 
+\vskip 0.3cm
 
+ii. The integer S would be generated the same way as above,
+with the polynomial $s(x) = \prod_{y=0}^{1}\sum_{z=0}^{1} 1 - (1 - z - yz + xz - xyz - xy - xyz - xzy + zxy - xyz + xyz + xyz - xyz)$
+
+\vskip 0.3cm
+WORK NEEDED HERE
+
+1. With x = 0, y = 0, z = 1
+
+\vskip 0.3cm
+Here are the steps to find S:
+
+\vskip 0.3cm
+
+iii. The polynomial is g(y) =  $\sum_{z=0}^{1} 1 - (1 - z - yz + (1/3)z - (1/3)yz - (1/3)y - (1/3)yz - (1/3)zy + z(1/3)y - (1/3)yz + (1/3)yz + (1/3)yz - (1/3)yz)$
+
+\vskip 0.3cm
+
+iv.  Arthur is checking if this second polynomial works such that g(0) * g(1) = s(1/3)
+to see if there is any issue with s(1/3). If there is, then there is proof that
+s(1/3) is inccorect.
 \end{document}
