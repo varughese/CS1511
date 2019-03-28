@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{enumitem} 
+
+\newcommand{\problem}[1]{
+	\vskip 1em
+	{\large \textbf{#1}}
+}
+ 
+\begin{document}
+
+\title{CS 1511 Homework 19} % Replace X with the appropriate number
+\author{Mathew Varughese, Justin Kramer, Zach Smith} 
+\date{Wednesday, March 27}
+
+\maketitle
+
+\setlength{\parskip}{.2em}
+\setlength\parindent{0pt}
+
+\problem{36.}
+
+AM = \{ (M, p, q, I) $\mid \exists$ TM M, $\exists$ polynomial p $\exists$ polynomial q and input I such that:
+
+M runs in poly-time
+
+if x $\in$ L, then $Pr_{y \in \{0,1\}^{p(n)}}(\exists z \in \{0, 1\}^{q(n)} M(x,y,z) = 1) \geq 2/3$
+
+if x $\notin$ L, then $Pr_{y \in \{0,1\}^{p(n)}}(\forall z \in \{0, 1\}^{q(n)} M(x,y,z) = 0) \geq 2/3$
+
+MAM = The class of languages that can be proved by a 3-message protocol in which the prover sends one
+message.
+
+\vskip .3cm
+L $\in$ MAM
+
+
+
+L $\in$ AM
+
+\end{document}
