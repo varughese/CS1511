@@ -22,6 +22,90 @@
 
 \problem{42 a.}
 
+We begin with the EPR experiment from the book. We give Alice x and Bob y. Both of them see that
+their variables equal 1. In this case, they will both decide to rotate their qubits according to the book's
+protocol.
+
+The qubits of Alice and Bob begin as $\mid ij \rangle = 1/\sqrt{2}\mid 00 \rangle + 1/\sqrt{2}\mid 11 \rangle$
+
+To start, Alice rotates her qubit by $\pi / 8$.
+
+The matrix representing a rotation of $\pi / 8$ to our qubit is:
+
+$
+\begin{bmatrix} 
+	cos(\pi / 8) & cos(5\pi / 8) \\
+	sin(\pi / 8) &  sin(5\pi / 8)
+\end{bmatrix}
+$
+
+\vskip .5cm
+
+This matrix comes form taking our original $\pi / 8$ matrix which is : 
+
+$
+\begin{bmatrix} 
+	cos(\pi / 8) & 0 \\
+	sin(\pi / 8) &  0
+\end{bmatrix}
+$
+
+and multiplying by:
+
+$
+\begin{bmatrix} 
+	1  \\
+	0
+\end{bmatrix}
+$
+
+to get:
+
+$
+\begin{bmatrix} 
+	cos(5\pi / 8) \\
+	sin(5\pi / 8)
+\end{bmatrix}
+$
+
+When combined, we get the overall rotation we have above.
+
+After this rotation is applied, our qubit $\mid ij \rangle = 1/\sqrt{2} * cos(\pi / 8)\mid 00 \rangle + 1/\sqrt{2} * sin(\pi / 8)\mid 10 \rangle + 1/\sqrt{2} * cos(5\pi / 8)\mid 01 \rangle + 1/\sqrt{2} * sin(5\pi / 8)\mid 11 \rangle$
+
+Now Bob decides to rotate by $-\pi / 8$ since he sees $y=1$, and the protocol says that causes this rotation.
+
+By the same process as above, we get the rotation of $-\pi / 8$ to be:
+
+$
+\begin{bmatrix} 
+	cos(-\pi / 8) & cos(-5\pi / 8) \\
+	sin(-\pi / 8) &  sin(-5\pi / 8)
+\end{bmatrix}
+$
+
+\vskip .5cm
+
+Now we apply this rotation to our already rotated qubit, making our qubit $\mid ij \rangle = (1/\sqrt{2} * cos(\pi / 8)\mid 0 \rangle + 1/\sqrt{2} * sin(\pi / 8)\mid 1 \rangle)(1/\sqrt{2} * cos(\pi / 8)\mid 0 \rangle - 1/\sqrt{2} * sin(\pi / 8)\mid 1 \rangle) + (1/\sqrt{2} * - sin(\pi / 8)\mid 0 \rangle + 1/\sqrt{2} * cos(\pi / 8)\mid 1 \rangle)(1/\sqrt{2} * sin(\pi / 8)\mid 0 \rangle + 1/\sqrt{2} * sin(\pi / 8)\mid 1 \rangle)$
+
+Now we do the multiplications to simplify. Since $1/\sqrt{2}$ is in all parts, we can simplify it out of our math.
+
+After simplifying, we get the following state of our qubit.
+
+$\mid ij \rangle = (cos^2(\pi/8) - sin^2(\pi/8))\mid 00 \rangle - 2 sin(\pi/8)cos(\pi/8)\mid 01 \rangle + 2sin(\pi/8)cos(\pi/8)\mid 10 \rangle + (cos^2(\pi/8) - sin^2(\pi/8))\mid 11 \rangle$
+
+Now we just have the measuring of Alice and Bob. To start, let's find out what we need to win the game.
+
+In order to win the game with x = 1 and y = 1, we will need a and b to be different. Thus, Alice and Bob must give different answers.
+
+We can calculate the chance of each possible path down the possibilities tree. We start with the probability that we get $\mid00\rangle$, which is
+
+equal to the probability of $\mid11\rangle$. This probability is the square of the amplitude, which is $(cos^2(\pi/8) - sin^2(\pi/8))^2$. This is equal to .5.
+
+Also, the probability of getting $\mid01\rangle$ or $\mid10\rangle$ are the same, and the squares of their amplitudes are $(2sin(\pi/8)cos(\pi/8))^2$, which is also .5.
+
+Since everything has equal probabilities, the probability of having different values for a and b are .5. 
+
+This means that the chance of Alice and Bob winning in this case is 1/2.
 
 
 \problem{42 b.}
