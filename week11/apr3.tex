@@ -109,7 +109,32 @@ This means that the chance of Alice and Bob winning in this case is 1/2.
 
 
 \problem{42 b.}
+This probability is the same as the probability of
+Alice and Bob winning for the protocol
+in the textbook.
 
+There are 3 cases:
+
+1. If $x = y = 0 $, $a = b$ w probability 1
+
+2. If $x \neq y $ then $a = b$ with probability $cos^2(\pi/8) (> 85) $
+
+3. If $x = y = 1$, then $a = b$ with probability $1/2$.
+
+The calculations are the same because 
+the order Bob and Alice look at their 
+qubits does not matter.
+
+The overall acceptance probability is 
+at least $1/4 * 1 + 1/2 * 0.85 + 1/4 * 1/2 = 0.8$.
+
+This is the same as the value in the textbook.
+
+Each case can be calculated the 
+same as the way was done in class. This is 
+written on page 208 in the textbook.
+The protocol is the same. Splitting and rotating
+individual qubits is possible.
 
 
 \end{document}
