@@ -23,7 +23,16 @@
  
 \problem{43.}
 
+If a $= 0^n$, Simon's algorithm still works. This is because if the function is one-to-one, 
+and $a = 0^n$, after we compute $\mid xz\rangle -> \mid x(y \oplus f(x))\rangle$ we 
+can measure $\mid (x \oplus a)$ and see that it's equivalent to x. This will let us know
+that $a = 0^n$. We will therefore have correctly computed a. Or, if we continue Simon's
+algorithm, we will eventually be finding k linear equations for $y \odot a = 0$ with a 
+uniform string for y that makes this true. In this case, every single one of these y's will 
+work. Solving the linear equations will give us that all values of a are 0, which is true.
+
 \problem{44 a.}
+
 
 \problem{44 b.}
 
