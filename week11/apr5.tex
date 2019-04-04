@@ -32,10 +32,36 @@ uniform string for y that makes this true. In this case, every single one of the
 work. Solving the linear equations will give us that all values of a are 0, which is true.
 
 \problem{44 a.}
+To get the Bell state $1/\sqrt{2}\mid0\rangle + 1/\sqrt{2}\mid1\rangle$, Alice can perform a rotation of 
+$\pi/4$ to her qubit. This could be when x = 0 and y = 0.
 
+\vskip .3cm
+
+To get the Bell state $1/\sqrt{2}\mid0\rangle - 1/\sqrt{2}\mid1\rangle$, Alice can perform a rotation of 
+$-\pi/4$ to her qubit. This could be when x = 0 and y = 1.
+
+\vskip .3cm
+
+To get the Bell state $-1/\sqrt{2}\mid0\rangle + 1/\sqrt{2}\mid1\rangle$, Alice can perform a rotation of 
+$3\pi/4$ to her qubit. This could be when x = 1 and y = 0.
+
+\vskip .3cm
+
+To get the Bell state $-1/\sqrt{2}\mid0\rangle - 1/\sqrt{2}\mid1\rangle$, Alice can perform a rotation of 
+$-3\pi/4$ to her qubit. This could be when x = 1 and y = 1.
+
+So basically, Alice will want to rotate by $\pi/4$ when x = 0 and rotate by $3\pi/4$ when x = 1. If y = 1
+then this rotation is negative, otherwise it's positive.
 
 \problem{44 b.}
 
+The state of a and b will be as described above, depending on the values of x and y. 
+
 \problem{44 c.}
+
+If we apply a hadamard operation to the state of a and b, we can find x from examining
+the vector that is created after the operation. We can find y by taking the negation of x.
+
+
 
 \end{document}
