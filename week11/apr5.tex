@@ -32,8 +32,8 @@ uniform string for y that makes this true. In this case, every single one of the
 work. Solving the linear equations will give us that all values of a are 0, which is true.
 
 \problem{44 a.}
-To get the Bell state $1/\sqrt{2}\mid0\rangle + 1/\sqrt{2}\mid1\rangle$, Alice would do 
-nothing to her qubit. This will be when x = 0 and y = 0.
+To get the Bell state $1/\sqrt{2}\mid0\rangle + 1/\sqrt{2}\mid1\rangle$, Alice would apply
+Hadamard operation to her qubit. This will be when x = 0 and y = 0.
 
 \vskip .3cm
 
@@ -45,7 +45,7 @@ $
 \end{bmatrix}
 $
 
- to her qubit. This will be when x = 0 and y = 1.
+ to her qubit after a Hadamard. This will be when x = 0 and y = 1.
 
 \vskip .3cm
 
@@ -79,7 +79,5 @@ When Bob measures his qubit b, the state of qubit a will collapse to state 0 or 
 of each occurring. If we then take a CNOT gate to qubits a and b and then a 
 Hadamard gate operation on qubit a, we will see the x value as
 the "x coordinate" of the resulting vector and the y value as the "y coordinate" of the resulting vector.
-
-
 
 \end{document}
