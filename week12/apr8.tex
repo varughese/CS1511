@@ -22,7 +22,67 @@
 \setlength\parindent{0pt}
  
 \problem{45.}
-Extra credit ...
+Showing that final state of qubit b is the initial state of qubit x.
+
+When Alice measures, qubit b collapses to one of four possible states.
+As shown in the previous problem, there are four ways to take the final
+state of qubit b and find the initial state x. According to our last homework,
+the values of the two classical bits can decide what operation to proceed with.
+
+For example, in one case (x = 0 and y = 0) that qubit x was not modified at
+all, so the initial and final state of x = b.
+
+If (x = 0 and y = 1) we could take qubit b, apply a Hadamard operation and multiply
+by 
+$
+\begin{bmatrix} 
+	1 & 0 \\
+	0 &  -1
+\end{bmatrix}
+$
+to get the initial state of x.
+
+If (x = 1 and y = 0), we could take qubit b and apply a CNOT operation to it to 
+get qubit x.
+
+If (x = 1 and y =1),  we could take qubit b and apply a CNOT operation to it before
+multiplying by
+$
+\begin{bmatrix} 
+	1 & 0 \\
+	0 &  -1
+\end{bmatrix}
+$
+to get qubit x at its initial state.
+
+This is possible because all the operations are reversible in quantum.
+
+After negation of x,
+
+a = 1
+
+b = $\mid0\rangle/\sqrt{2} +  \mid1\rangle/\sqrt{2}$
+
+x = $\alpha\mid1\rangle +  \beta\mid0\rangle$
+
+After Hadamard gate,
+
+a = $\mid0\rangle/\sqrt{2} +  \mid1\rangle/\sqrt{2}$
+
+b = $\mid0\rangle/\sqrt{2} +  \mid1\rangle/\sqrt{2}$
+
+x = $\alpha\mid1\rangle +  \beta\mid0\rangle$
+
+After measuring a and x
+
+a = what's measured
+
+b = $\mid0\rangle/\sqrt{2} +  \mid1\rangle/\sqrt{2}$
+
+x = what's measured
+
+Bob can run b through a Hadamard gate and then negate x if
+a = 1 to get the original state of x.
 
 
 \problem{46.}
