@@ -22,20 +22,33 @@
 \setlength\parindent{0pt}
  
 \problem{48.}
-Problem 11.2
 
-% not sure
-If there is a verifier that can do this,
-then there is a verifier that can
-try every possible query. 
+A language L has a PCP verifier if there's a polynomial-time probablistic algorithm V with
+efficiency, completeness, and soundness. 
+
+Call a language L one that has a PCP-verifier using r coing and q adaptive queries.
+
+There is an assumption that the number of queries is at most logarithmic in the input size (n), 
+so $2^q$ will still be polynomial to n. 
+
+So our language L with q queries has a logarithmic amount of queries in the input size(n), so 
+our non-adaptive proof wil be fine with $2^q$ queries.
 
 \problem{49.}
-Problem 11.7
-Consider the following problem: Given a system of linear equations in n with coeffi- cients that are rational numbers, determine the largest subset of equations that are simultaneously satisfiable. Show that there is a constant ρ < 1 such that approximat- ing the size of this subset is NP-hard.
+
+Let L be the language of pairs $\langle A, k \rangle$ such that A is a 0/1 matrix and k $\in$ Z satisfying perm(A) = k.
+
+To show L $\in$ PCP(poly(n), poly(n)):
+
+In this case, the verifier expects $\pi$ to contain the answer to if each pair $\langle A, k \rangle$ fits perm(A) = k. 
+
+The verifier picks a b $\in \{0, 1\}$ at random and a random A. They then get a value of k, and see if the 
+it b matches what they find in $\pi$ for the values of A and k. We can run the following protocol for a polynomial
+amount of times to get a result where we can construct a $\pi$ that accepts with probability 1 if perm(A) = k and
+accepts at most 1/2 of the time if perm(A) != k.
 
 
 \problem{50.}
-Problem 11.16
 
 We can run Gaussian Elimination on the matrix
 formed by the equations. This operation 
@@ -51,7 +64,7 @@ system very similar to MAXSAT. If the equations
 are not satisfiable in this, they will
 not be satisfiable be the linear equations.
 
-To find this $p$, we perform a gap reduction 
+To find this p, we perform a gap reduction 
 just as we did in the MAXSAT problem.
 
 
