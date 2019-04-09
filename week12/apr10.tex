@@ -24,11 +24,35 @@
 \problem{48.}
 Problem 11.2
 
+% not sure
+If there is a verifier that can do this,
+then there is a verifier that can
+try every possible query. 
+
 \problem{49.}
 Problem 11.7
+Consider the following problem: Given a system of linear equations in n with coeffi- cients that are rational numbers, determine the largest subset of equations that are simultaneously satisfiable. Show that there is a constant ρ < 1 such that approximat- ing the size of this subset is NP-hard.
+
 
 \problem{50.}
 Problem 11.16
+
+We can run Gaussian Elimination on the matrix
+formed by the equations. This operation 
+is $n^3$.  Now, taking this system, we
+create a system of equations that are similar 
+to those in the MAXSAT problem. To rid of the 
+rational coefficients, we can simply multiply
+by a common factor of all coefficients to
+make them whole numbers. We take 
+the mod 2 of each coefficient. Then, 
+since the equations are linear, we have a 
+system very similar to MAXSAT. If the equations
+are not satisfiable in this, they will
+not be satisfiable be the linear equations.
+
+To find this $p$, we perform a gap reduction 
+just as we did in the MAXSAT problem.
 
 
 \end{document}
