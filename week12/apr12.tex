@@ -22,10 +22,29 @@
 \setlength\parindent{0pt}
  
 \problem{51 a.}
-
-
+u1 = 0
+u2 = 1
+u3 = 1
 
 \problem{52.}
+NP = L-PCP(log n)
+
+NP = $\{$L: there is a logspace machine M s.t x $\in$ L iff $\exists$ y : M accepts (x,y) $\}.$
+
+L-PCP(log n) = $\{$L : there is a logspace machine M s.t x $\in$ L iff $\forall$ y : M accepts (x,y) with probability 1 and x $\notin$ L iff $\forall$ y : M rejects (x,y) 
+with probability $\geq 1/2 \}$
+
+We need to show two things
+
+\vskip .5 cm
+
+NP $\subseteq$ L-PCP(log n)
+
+
+\vskip .5 cm
+
+ L-PCP(log n) $\subseteq$ NP
+
 
 
 
