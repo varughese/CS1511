@@ -40,10 +40,32 @@ We need to show two things
 
 NP $\subseteq$ L-PCP(log n)
 
+L $\in$ NP
+
+$\exists$ M that decides L
+
+This is simple, have the log space verifier tape
+of the NP machine M become the random bits
+that the L-PCP(log n) uses. 
+
+This will accept and reject with probability 1, which falls
+under the L-PCP(log n) conditions.
+
+L $\in$ L-PCP(log n)
 
 \vskip .5 cm
 
  L-PCP(log n) $\subseteq$ NP
+
+L $\in$ L-PCP(log n)
+
+$\exists$ M that decides L
+
+Run the machine and build a set R that is the random bits used
+when the machine accepts for a logirithmic sized R. Then use this set R to build the NP machine
+with R as the verifier tape.
+
+L $\in$ NP
 
 
 
