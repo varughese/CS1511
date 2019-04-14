@@ -41,17 +41,33 @@ time, thus contradicting the defintion of a one way
 function. 
 
 \problem{55.}
-$f(x)$ is a one way permutation. A one way
-permutation is a function that maps n bits to
-n bits and for every BPP machine C,
-C(f(x)) = x has a very small probability. 
+The distributions of $E_{U_n}(x)$ and $E_{U_n}(x')$
+can not be identical if $n < m$ because there must be
+an n that maps to two m's, which means that if you have
+one of the n's then there's a greater possibility of these two
+answers for your initial message, which destroys the 
+possibility that you have the same distribution for all
+messages once run through the function E. 
 
-Thus, f(f(x)) will have the same property. Since
-x is not discoverable from f(x), f(f(x)) also 
-has the same property. It is a one way function.
+You need to have at least one n for each m so that
+for each key n, it could map to any m so that all
+distributions of E are identical.
 
-This idea can be repeated for all $f^k$ functions.
-Since $k$ is polynomial, 
+\problem{56.}
+Assume by contradiction that $f^k$ is not a one-way
+permutation. Now say we have a polynomial time 
+algorithm A that we apply $f^k$ to in order to get
+a probability for (A(y) = y) that is greater than
+some negligible amount for all n.
 
+We can then convert our probability with 
+this composition into $f(f^{k-1} (A(y) = y)$.
+
+We know that $f^{k-1} A(y)$ can be computed in 
+polynomial time. So we can compute A(y) and then
+apply our permutation f (k - 1) times, which will 
+takes $n^c$ (a poly amount of times of f which
+is poly-time). This now contradicts that f is a 
+one-way permutation.  
 
 \end{document}
