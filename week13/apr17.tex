@@ -34,14 +34,16 @@ $k^3 = n^2$, so the running time of g is O($n^2$).
 
 
 \problem{57 b.}
-We have a one way function $f_U$, which a universal one way function that exists
-if some one way function f exists. 
+From the information in the book, we can say that $f_U$ can be computed in polynomial
+time.
 
-We can show by contradiction that if $f_U$ is invertible in poly-time, then f is 
-invertible in poly-time. Proving that they are both one way functions.
+Suppose there exists a one-way function f. Then there exists a Turing Machine M in our list
+of turing machines $M_i$ that  computes f. We can say that x $\in \{0, 1\}^*$ such 
+that $\mid x \mid \geq K$, $f_U(x)$ contains M(x) = f(x). 
 
-
-
+We can now say that for all functions f, we can find a Turing Machine M in our list such that
+$f_U(x)$ contains $M(x) = f(x)$, which shows that we have a one way function $f_U$ if there
+is a one way function f.
 
 \problem{58 a.}
 The protocol allows a zero knowledge proof to determine if a graph G has
